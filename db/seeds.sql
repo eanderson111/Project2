@@ -1,0 +1,10 @@
+INSERT INTO handyman.users (first_name, last_name, credit_card,createdAt,updatedAt) VALUES ('Jon','Snow','4456654123659587','2016-12-31 23:59:59','2016-12-31 23:59:59');
+INSERT INTO handyman.users (first_name, last_name, credit_card,createdAt,updatedAt) VALUES ('Arya','Stark', '9956654123659587','2016-12-31 23:59:59','2016-12-31 23:59:59');
+INSERT INTO handyman.users (first_name, last_name, credit_card,createdAt,updatedAt) VALUES ('Daenerys','Targaryen','76986654123659587','2016-12-31 23:59:59','2016-12-31 23:59:59');
+INSERT INTO handyman.favors (description,createdAt,updatedAt) VALUES ('Dragon Slaying','2016-12-31 23:59:59','2016-12-31 23:59:59');
+INSERT INTO handyman.favors (description,createdAt,updatedAt) VALUES ('Electrical Work','2016-12-31 23:59:59','2016-12-31 23:59:59');
+INSERT INTO handyman.favors (description,createdAt,updatedAt) VALUES ('Pickup Starbucks','2016-12-31 23:59:59','2016-12-31 23:59:59');
+INSERT INTO handyman.userfavors (userId,favorId,createdAt,updatedAt) VALUES (1,2,'2016-12-31 23:59:59','2016-12-31 23:59:59');
+INSERT INTO handyman.userfavors (userId,favorId,createdAt,updatedAt) VALUES (2,2,'2016-12-31 23:59:59','2016-12-31 23:59:59');
+INSERT INTO handyman.userfavors (userId,favorId,createdAt,updatedAt) VALUES (2,1,'2016-12-31 23:59:59','2016-12-31 23:59:59');
+INSERT INTO handyman.userfavors (userId,favorId,createdAt,updatedAt) VALUES (2,3,'2016-12-31 23:59:59','2016-12-31 23:59:59');
