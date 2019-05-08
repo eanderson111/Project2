@@ -18,6 +18,67 @@
         padding-right: 2em;
         padding-top: 2em;
     }
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline-block;
+}
+
+input[type="checkbox"][id^="cb"] {
+  display: none;
+}
+
+label {
+  border: 1px solid #fff;
+  padding: 10px;
+  display: block;
+  position: relative;
+  margin: 10px;
+  cursor: pointer;
+}
+
+label:before {
+  background-color: white;
+  color: white;
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  border: 1px solid grey;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 28px;
+  transition-duration: 0.4s;
+  transform: scale(0);
+}
+
+label img {
+  height: 100px;
+  width: 100px;
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+}
+
+:checked + label {
+  border-color: #ddd;
+}
+
+:checked + label:before {
+  content: "✓";
+  background-color: grey;
+  transform: scale(1);
+}
+
+:checked + label img {
+  transform: scale(0.9);
+  box-shadow: 0 0 5px #333;
+  z-index: -1;
+}
 </style>
 
 <body>
@@ -39,11 +100,13 @@
                   <label for="inputAddress">Address</label>
                   <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
                 </div>
+
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputCity">City</label>
                     <input type="text" class="form-control" id="inputCity">
                   </div>
+                  
                   <div class="form-group col-md-4">
                     <label for="inputState">State</label>
                     <select id="inputState" class="form-control">
@@ -101,10 +164,12 @@
                             <option value="WY">Wyoming</option>
                     </select>
                   </div>
+                  
                   <div class="form-group col-md-2">
                     <label for="inputZip">Zip</label>
                     <input type="text" class="form-control" id="inputZip">
                   </div>
+               
                 </div>
 
 
@@ -118,12 +183,86 @@
                       <input type="password" class="form-control" id="signupPassword" placeholder="Password">
                     </div>
                   </div>
+
+                  <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="signupCategory">What are you handy with? (Select all that apply)</label><br>
+                                <ul>
+                                    <li><input type="checkbox" id="cb1" data-toggle="modal" data-target="#exampleModal"/>
+                                    <label for="cb1"><img src="../public/images/appliances.png" /></label>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h5 class="modal-title" id="exampleModalLabel">Plumbing</h5>
+                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                  </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                        <div class="form-check">
+                                                                <input type="checkbox" name="plumbingTask" value="drain"> Drain cleaning<br>
+                                                                <input type="checkbox" name="plumbingTask" value="faucet"> Faucets installation or repair<br>
+                                                                <input type="checkbox" name="plumbingTask" value="disposal"> Garbage disposal malfunctioning<br>
+                                                                <input type="checkbox" name="plumbingTask" value="drain"> Septic systems & mains<br>
+                                                                <input type="checkbox" name="plumbingTask" value="drain"> Sprinkler systems<br>
+                                                                <input type="checkbox" name="plumbingTask" value="drain"> Water heaters<br>
+                                                                <input type="checkbox" name="plumbingTask" value="drain"> Water softening or purification<br>
+                                                              </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                  <button type="submit" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </li>
+
+                                    <li><input type="checkbox" id="cb2" />
+                                    <label for="cb2"><img src="../public/images/electrical.png" /></label>
+                                    </li>
+                                    <li><input type="checkbox" id="cb3" />
+                                    <label for="cb3"><img src="../public/images/flooring.png" /></label>
+                                    </li>
+                                    <li><input type="checkbox" id="cb4" />
+                                    <label for="cb4"><img src="../public/images/heating&cooling.png" /></label>
+                                    </li>
+                                    <li><input type="checkbox" id="cb4" />
+                                    <label for="cb4"><img src="../public/images/housecleaning.png" /></label>
+                                    </li>
+                                    <li><input type="checkbox" id="cb4" />
+                                    <label for="cb4"><img src="../public/images/household.png" /></label>
+                                    </li>
+                                    <li><input type="checkbox" id="cb4" />
+                                     <label for="cb4"><img src="../public/images/landscaping.png" /></label>
+                                    </li>
+                                    <li><input type="checkbox" id="cb4" />
+                                    <label for="cb4"><img src="../public/images/painting.png" /></label>
+                                    </li>
+                                    <li><input type="checkbox" id="cb4" />
+                                    <label for="cb4"><img src="../public/images/plumbing.png" /></label>
+                                    </li>
+                                    <li><input type="checkbox" id="cb4" />
+                                    <label for="cb4"><img src="../public/images/roofing.png" /></label>
+                                    </li>
+                                    <li><input type="checkbox" id="cb4" />
+                                    <label for="cb4"><img src="../public/images/windows&doors.png" /></label>
+                                    </li>
+                                    <li><input type="checkbox" id="cb4" />
+                                    <label for="cb4"><img src="../public/images/winterization.png" /></label>
+                                    </li>
+                              </ul>
+                    </div>
+                  </div>
+
                 <div class="form-group">
-                </div class="sign-up">
-                <button type="submit" class="btn btn-primary" id="signUp">Sign up</button>
+                    </div class="sign-up">
+                    <button type="submit" class="btn btn-primary" id="signUp">Sign up</button>
                 </div>
+
               </form>
-            </div>
+        </div>
 
 </body>
 
