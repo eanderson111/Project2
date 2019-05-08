@@ -91,8 +91,8 @@ module.exports = function(sequelize, DataTypes) {
   }
   });
   User.associate = function(models) {
-    User.belongsToMany(models.Favor, {
-      through: 'UserFavor',
+    User.belongsToMany(models.Skill, {
+      through: 'UserSkill',
       as: 'user',
       foreignKey: 'userId'
     });

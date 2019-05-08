@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    const UserFavor = sequelize.define('UserFavor', {
+    const UserSkill = sequelize.define('UserSkill', {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -15,15 +15,15 @@ module.exports = function(sequelize, DataTypes) {
           key: 'id'
         }
       },
-      favorId: {
+      skillId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'Favor',
+          model: 'Skill',
           key: 'id'
         }
       }
     });
-    return UserFavor;
+    return UserSkill;
   };
 
