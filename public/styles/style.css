@@ -1,3 +1,10 @@
+/*
+    Theme Name: Medilab
+    Theme URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
+    Author: BootstrapMade.com
+    Author URL: https://bootstrapmade.com
+*/
+
 body {
   font-family: "Open Sans", sans-serif;
   line-height: 20px;
@@ -212,7 +219,7 @@ services
   font-size: 15px !important;
 }
 /***************************************
-hours
+cta-1
 ***************************************/
 .schedule-tab {
   background-color: maroon;
@@ -289,7 +296,9 @@ about
 .sec-para {
   padding-bottom: 10px;
 }
-
+/***************************************
+doctor team
+***************************************/
 .thumbnail {
   border-radius: 0px;
 }
@@ -299,7 +308,9 @@ about
 .caption p {
   padding-bottom: 10px;
 }
-
+/***************************************
+testimonial
+***************************************/
 #testimonial {
   background-color: #eee;
 }
@@ -362,7 +373,9 @@ about
   box-shadow: 3px -13px 5px 0px rgba(0, 0, 0, 0.18);
   border-left: 0;
 }
-
+/***************************************
+cta -2
+***************************************/
 #cta-2 {
   background-color: rgb(41, 48, 46);
 }
@@ -387,7 +400,7 @@ about
   margin-right: 7px;
 }
 /***************************************
-whats covered
+contact us
 ***************************************/
 .space {
   margin-top: 40px;
