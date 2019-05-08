@@ -1,6 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
     const Skill = sequelize.define('Skill', {
-        type: {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true
+      },
+      type: {
           type: DataTypes.STRING,
           allowNull: false
         },

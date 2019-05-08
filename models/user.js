@@ -98,10 +98,14 @@ module.exports = function(sequelize, DataTypes) {
     });
     User.hasMany(models.Ticket, {
       as: 'fulfilled_by',
+      foreignKey: 'fulfilled_by',
+      sourceKey: 'id',
       onDelete: "cascade"
     });
     User.hasMany(models.Ticket, {
       as: 'submitted_by',
+      foreignKey: 'submitted_by',
+      sourceKey: 'id',
       onDelete: "cascade"
     })
   };

@@ -31,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
       // We're saying that a Ticket should belong to an Author
       // A Ticket can't be created without an Author due to the foreign key constraint
       Ticket.belongsTo(models.User, {
-          foreignKey: 'submitted_by'
+        foreignKey: 'submitted_by'
       });
       Ticket.belongsTo(models.User, {
         foreignKey: 'fulfilled_by'
