@@ -1,6 +1,13 @@
 module.exports = function(sequelize, DataTypes) {
     const Skill = sequelize.define('Skill', {
-        description: DataTypes.STRING
+        type: {
+          type: DataTypes.STRING,
+          allowNull: false
+        },
+        description: {
+          type: DataTypes.STRING,
+          allowNull: false
+        }
     });
     Skill.associate = function(models) {
       Skill.belongsToMany(models.User, {
