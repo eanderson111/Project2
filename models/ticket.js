@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        fulfilledBy: DataTypes.INTEGER,
+        fulfilled_by: DataTypes.INTEGER,
         skill_id: {
             type: DataTypes.INTEGER,
             allowNull: false,

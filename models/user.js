@@ -97,11 +97,11 @@ module.exports = function(sequelize, DataTypes) {
       foreignKey: 'userId'
     });
     User.hasMany(models.Ticket, {
-      as: 'toUser',
+      as: 'fulfilled_by',
       onDelete: "cascade"
     });
     User.hasMany(models.Ticket, {
-      as: 'fromUser',
+      as: 'submitted_by',
       onDelete: "cascade"
     })
   };
