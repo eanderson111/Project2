@@ -5,7 +5,7 @@ var $clientAddress = $("#inputAddress");
 var $clientCity = $("#inputCity");
 var $clientState = $("#inputState");
 var $clientPostal = $("#inputZip");
-var $clientSkills = $("#client-skills");
+//var $clientSkills = $("#client-skills");
 var $clientEmail = $("#signupEmail");
 var $clientPass = $("#signupPassword");
 var $submitBtn = $("#submit");
@@ -14,6 +14,7 @@ var street = ""
 var lat = 0
 var lng = 0
 var geo = []
+var $clientSkills = 0
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -23,19 +24,19 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/clients",
+      url: "api/users",
       data: JSON.stringify(client)
     });
   },
   getExamples: function() {
     return $.ajax({
-      url: "api/clients",
+      url: "api/users",
       type: "GET"
     });
   },
   deleteExample: function(id) {
     return $.ajax({
-      url: "api/clients/" + id,
+      url: "api/users/" + id,
       type: "DELETE"
     });
   }
@@ -77,7 +78,7 @@ var handleFormSubmit = function(event) {
 
   street = $clientAddress.val() + "," + $clientCity.val() + ","+ $clientState.val()
 
-  getAddress(street)
+ // getAddress(street)
   //.then(function(){
 
   //makeClient()
@@ -89,7 +90,7 @@ var handleFormSubmit = function(event) {
     city: $clientCity.val().trim(),
     state: $clientState.val().trim(),
     zip: $clientPostal.val().trim(),
-    skills: $clientSkills.val().trim(),
+    skills: $clientSkills,//$clientSkills.val().trim(),
     lat: lat,
     lng: lng,
     email: $clientEmail.val().trim(),
@@ -99,11 +100,11 @@ var handleFormSubmit = function(event) {
   street = client.address + "," + client.city + ","+ client.state
   console.log(street)
   console.log(typeof street)
- getAddress(street)
+ //getAddress(street)
   console.log(lat)
   console.log(lng)
 
-  if (!(client.first_name && client.last_name && client.address && client.city && client.state && client.zip)) {
+  if (!(client.first_name && client.last_name && client.address && client.city && client.state && client.zip && client.email && client.password)) {
     alert("You must enter ALL the information!");
     return;
   }
@@ -115,12 +116,16 @@ var handleFormSubmit = function(event) {
     alert("You are now signed up")
   });
 
-  $clientName.val("");
+  $clientFName.val("");
+  $clientLName.val("");
   $clientAddress.val("");
   $clientCity.val("");
   $clientState.val("");
   $clientPostal.val("");
-  $clientSkills.val("")
+  //$clientSkills.val("")
+  $clientEmail.val("")
+  $clientPass.val("")
+
 
  
 };
