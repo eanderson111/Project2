@@ -1,11 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   const User = sequelize.define('User', {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      allowNull: false,
-      autoIncrement: true
-    },
+    
     first_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -52,6 +47,10 @@ module.exports = function(sequelize, DataTypes) {
     },
     state: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    zip: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     lat: {
