@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS all_users;
+CREATE DATABASE all_users;
+
