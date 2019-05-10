@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up Form</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<style>
+    .container {
+        padding-left: 2em;
+        padding-right: 2em;
+        padding-top: 2em;
+    }
+</style>
+
+<body>
+    <div class = container>
+        <form action="" method="POST" role="form">
+
+         <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="categories">What problems are you experiencing (category)?</label>
+                <select class="form-control" id="categories">
+                    <option>Plumbing</option>
+                    <option>Appliances</option>
+                    <option>Heating & A/C</option>
+                    <option>Electrical</option>
+                    <option>Landscaping</option>
+                    <option>Housecleaning</option>
+                    <option>Painting & Staining</option>
+                    <option>Flooring</option>
+                    <option>Windows & Doors</option>
+                    <option>Roofing & Gutters</option>
+                    <option>Household Chores</option>
+                    <option>Home Winterization</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                    <label for="emergency">Is this an emergency?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="emergency" id="emergency">
+                        <label class="form-check-label" for="defaultCheck1">Yes</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="non-emergency" type="checkbox" value="non-emergency" id="emergency">
+                        <label class="form-check-label" for="defaultCheck1">No</label>
+                    </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                        <label for="exampleFormControlSelect1">What is the nature of the work to be done?</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Repairs</option>
+                            <option>Installation</option>
+                            <option>Assembly</option>
+                            <option>Maintenance</option>
+                        </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                        <label for="exampleFormControlSelect1">When were you hoping to have the work done?</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Today</option>
+                            <option>Tomorrow</option>
+                            <option>2-3 days</option>
+                            <option>1 week</option>
+                        </select>
+                </div>
+            </div>
+        </form>
+</body>
+
+</html>
