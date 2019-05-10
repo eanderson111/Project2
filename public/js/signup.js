@@ -33,6 +33,7 @@ var API = {
 };
 
 
+
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
@@ -95,6 +96,7 @@ var handleFormSubmit = function(event) {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
+
 
 
 /*need to onSubmit take $clientAddress, $clientCity, and $clientState and put it into the freeform for here MAPS then

@@ -19,6 +19,7 @@ module.exports = function(app) {
   app.get("/signup", function(req, res) {
     db.User.findAll({}).then(function(dbExamples) {
       res.render("signup", {
+
         msg: "Welcome!",
         clients: dbExamples
       });
@@ -44,6 +45,7 @@ module.exports = function(app) {
 
 
 
+
   /*
 
   // Load example page and pass in an example by id
@@ -61,6 +63,8 @@ module.exports = function(app) {
         client: dbExample
       });
     });
+
+
   });
 
   */
