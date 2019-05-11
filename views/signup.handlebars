@@ -1,115 +1,33 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
-<head>
-  <meta charset="UTF-8">
-  <title>Sign Up Form</title>
-  <!-- Latest compiled and minified CSS & JS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-</head>
-
-<style>
-    .container {
-        padding-left: 2em;
-        padding-right: 2em;
-        padding-top: 2em;
-    }
-ul {
-  list-style-type: none;
-}
-
-li {
-  display: inline-block;
-}
-
-input[type="checkbox"][id^="cb"] {
-  display: none;
-}
-
-label {
-  border: 1px solid #fff;
-  padding: 10px;
-  display: block;
-  position: relative;
-  margin: 10px;
-  cursor: pointer;
-}
-
-label:before {
-  background-color: white;
-  color: white;
-  content: " ";
-  display: block;
-  border-radius: 50%;
-  border: 1px solid grey;
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  width: 25px;
-  height: 25px;
-  text-align: center;
-  line-height: 28px;
-  transition-duration: 0.4s;
-  transform: scale(0);
-}
-
-label img {
-  height: 100px;
-  width: 100px;
-  transition-duration: 0.2s;
-  transform-origin: 50% 50%;
-}
-
-:checked + label {
-  border-color: #ddd;
-}
-
-:checked + label:before {
-  content: "✓";
-  background-color: grey;
-  transform: scale(1);
-}
-
-:checked + label img {
-  transform: scale(0.9);
-  box-shadow: 0 0 5px #333;
-  z-index: -1;
-}
-</style>
-
-<body>
-    <div class = container>
-        <form action="" method="POST" role="form">
+ <div id="home">
+    <div class = "container">
+        <form action="POST">
             <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputFirstName">First Name</label>
-                  <input type="first-name" class="form-control" id="inputFirstName" placeholder="first name">
+                  <input type="text" class="form-control" id="inputFirstName" aria-describedby="inputFirstName" placeholder="first name">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label for="inputLastName">Last Name</label>
-                  <input type="last-name" class="form-control" id="inputLastName" placeholder="last name">
+                  <input type="text" class="form-control" id="inputLastName" aria-describedby="inputLastName" placeholder="last name">
                 </div>
              </div>
 
                 <div class="form-group">
                   <label for="inputAddress">Address</label>
-                  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                  <input type="text" class="form-control" id="inputAddress" aria-describedby="inputAddress" placeholder="1234 Main St">
                 </div>
 
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
+                    <input type="text" class="form-control" id="inputCity" aria-describedby="inputCity">
                   </div>
-                  
+
+
                   <div class="form-group col-md-4">
                     <label for="inputState">State</label>
-                    <select id="inputState" class="form-control">
+                    <select id="inputState" class="form-control" aria-describedby="inputState">
                       <option selected>Choose...</option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
@@ -164,10 +82,11 @@ label img {
                             <option value="WY">Wyoming</option>
                     </select>
                   </div>
+                
                   
                   <div class="form-group col-md-2">
                     <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
+                    <input type="text" class="form-control" id="inputZip" aria-describedby="inputZip">
                   </div>
                
                 </div>
@@ -176,20 +95,21 @@ label img {
                 <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="signupEmail">Email</label>
-                      <input type="email" class="form-control" id="signupEmail" placeholder="Email">
+                      <input type="email" class="form-control" id="signupEmail"  aria-describedby="signupEmail" placeholder="Email">
                     </div>
                     <div class="form-group col-md-6">
                       <label for="signupPassword">Password</label>
-                      <input type="password" class="form-control" id="signupPassword" placeholder="Password">
+                      <input type="password" class="form-control" id="signupPassword"  aria-describedby="signupPassword" placeholder="Password">
                     </div>
                   </div>
 
+                  
                   <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="signupCategory">What are you handy with? (Select all that apply)</label><br>
                                 <ul>
                                     <li><input type="checkbox" id="cb1" data-toggle="modal" data-target="#exampleModal"/>
-                                    <label for="cb1"><img src="../public/images/appliances.png" /></label>
+                                    <label for="cb1"><img src="/images/appliances3.png" /></label>
                                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                               <div class="modal-content">
@@ -219,51 +139,55 @@ label img {
                                           </div>
                                     </li>
 
+                                    
+
                                     <li><input type="checkbox" id="cb2" />
-                                    <label for="cb2"><img src="../public/images/electrical.png" /></label>
+                                    <label for="cb2"><img src="/images/electrical3.png"/></label>
                                     </li>
                                     <li><input type="checkbox" id="cb3" />
-                                    <label for="cb3"><img src="../public/images/flooring.png" /></label>
+                                    <label for="cb3"><img src="/images/flooring3.png" /></label>
                                     </li>
                                     <li><input type="checkbox" id="cb4" />
-                                    <label for="cb4"><img src="../public/images/heating&cooling.png" /></label>
+                                    <label for="cb4"><img src="/images/heating3.png" /></label>
                                     </li>
-                                    <li><input type="checkbox" id="cb4" />
-                                    <label for="cb4"><img src="../public/images/housecleaning.png" /></label>
+                                    <li><input type="checkbox" id="cb5" />
+                                    <label for="cb5"><img src="/images/housecleaning3.png" /></label>
                                     </li>
-                                    <li><input type="checkbox" id="cb4" />
-                                    <label for="cb4"><img src="../public/images/household.png" /></label>
+                                    <li><input type="checkbox" id="cb6" />
+                                    <label for="cb6"><img src="/images/household3.png" /></label>
                                     </li>
-                                    <li><input type="checkbox" id="cb4" />
-                                     <label for="cb4"><img src="../public/images/landscaping.png" /></label>
+                                    <li><input type="checkbox" id="cb7" />
+                                     <label for="cb7"><img src="/images/landscaping3.png" /></label>
                                     </li>
-                                    <li><input type="checkbox" id="cb4" />
-                                    <label for="cb4"><img src="../public/images/painting.png" /></label>
+                                    <li><input type="checkbox" id="cb8" />
+                                    <label for="cb8"><img src="/images/painting3.png" /></label>
                                     </li>
-                                    <li><input type="checkbox" id="cb4" />
-                                    <label for="cb4"><img src="../public/images/plumbing.png" /></label>
+                                    <li><input type="checkbox" id="cb9" />
+                                    <label for="cb9"><img src="/images/plumbing3.png" /></label>
                                     </li>
-                                    <li><input type="checkbox" id="cb4" />
-                                    <label for="cb4"><img src="../public/images/roofing.png" /></label>
+                                    <li><input type="checkbox" id="cb10" />
+                                    <label for="cb10"><img src="/images/roofing3.png" /></label>
                                     </li>
-                                    <li><input type="checkbox" id="cb4" />
-                                    <label for="cb4"><img src="../public/images/windows&doors.png" /></label>
+                                    <li><input type="checkbox" id="cb11" />
+                                    <label for="cb11"><img src="/images/windows3.png" /></label>
                                     </li>
-                                    <li><input type="checkbox" id="cb4" />
-                                    <label for="cb4"><img src="../public/images/winterization.png" /></label>
+                                    <li><input type="checkbox" id="cb12" />
+                                    <label for="cb12"><img src="/images/winterization3.png" /></label>
                                     </li>
                               </ul>
                     </div>
                   </div>
+                
 
-                <div class="form-group">
-                    </div class="sign-up">
-                    <button type="submit" class="btn btn-primary" id="signUp">Sign up</button>
-                </div>
+                
+                    <div class="sign-up">
+                      <button type="submit" class="btn btn-primary" id="submit">Sign up</button>
+                    </div>
 
               </form>
         </div>
+    </div>
 
-</body>
 
-</html>
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/js/signup.js"></script>

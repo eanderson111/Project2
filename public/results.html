@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>The handyman Plan</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"> -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link href="stylesheets/results.css" rel="stylesheet">
+  
+
+</head>
+
+<style>
+    .looks {
+        padding-left: 2em;
+        padding-right: 2em;
+        padding-top: 2em;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <a class="navbar-brand" href="/logout">
+                      Logout
+                    </a>
+                  </div>
+                </div>
+    </nav>
+    <div class = container class= looks>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <h2>Hi <span id="name"></span> here are your:</h2>
+            </div>
+          </div>     
+
+      <div class="row">
+        <div class="col-md-5" > 
+           <div class="text-center">
+              <h2 style="color:aqua" >Neighbors to Help</h2>
+            </div>
+        </div>
+
+        <div class="col-md-5" > 
+            <div class="text-center">
+              <h2 style="color: aqua" >Contractors to Help</h2>
+            </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-md-5" > 
+          <table class="table">             
+             <thead id="head">
+                        <tr>
+                          <th>
+                            Name
+                          </th>
+                          <th>
+                             Skills
+                         </th>
+  
+                        </tr>
+                </thead>
+                  
+                  <tbody id="tableN">
+                    
+                    <tr>
+                      <td>
+                          Bill Smith
+                          </td>
+                          <td>
+                          Electrician
+                            </td> 
+                      </tr>
+
+                      <tr>
+                          <td>
+                              Nathan Olson
+                              </td>
+                              <td>
+                              Electrician
+                                </td> 
+                          </tr>
+                   
+                    
+                </tbody>
+            </table>
+          </div>
+        
+          <div class="col-md-5" > 
+              <table class="table">             
+                 <thead id="head">
+                            <tr>
+                              <th>
+                                Name
+                              </th>
+                              <th>
+                                 Skills
+                             </th>
+      
+                            </tr>
+                    </thead>
+                      
+                      <tbody id="tableC">
+                        
+                        <tr>
+                          <td>
+                              Mark Smith
+                              </td>
+                              <td>
+                              Electrician
+                                </td> 
+                          </tr>
+                          <tr>
+                              <td>
+                                  Nathan Olson
+                                  </td>
+                                  <td>
+                                  Electrician
+                                    </td> 
+                              </tr>
+                       
+                        
+                    </tbody>
+                </table>
+              </div>
+
+       </div>
+           
+                  
+           
+
+           <div class="form-row">
+                <div class="form-group col-md-12">
+                    <div class="submit">
+                        <button type="submit" class="btn btn-primary" id="submit">Submit your Problem</button>
+                    </div>
+                </div>
+            </div>
+            
+
+
+
+        
+    </div>
+
+        
+</body>
+
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/results.js"></script>

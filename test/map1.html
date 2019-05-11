@@ -1,0 +1,86 @@
+<html>
+  <head>
+  <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+  <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js"
+  type="text/javascript" charset="utf-8"></script>
+  <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js"
+  type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+  <div style="width: 640px; height: 480px" id="mapContainer"></div>
+  <script>
+    // Initialize the platform object:
+    var platform = new H.service.Platform({
+        'app_id': 'gTzFBcdTfpQdW07yxaRz',
+    'app_code': 'tPrTqfHoFM8mAgjmpdhAvg'
+});
+// Retrieve the target element for the map:
+var targetElement = document.getElementById('mapContainer');
+
+// Get default map types from the platform object:
+var defaultLayers = platform.createDefaultLayers();
+
+// Instantiate the map:
+var map = new H.Map(
+  document.getElementById('mapContainer'),
+  defaultLayers.normal.map,
+  {
+  zoom: 12,
+  center: { lat: 44.94, lng: -93.1 }
+  });
+
+  //44.94, -93.1
+// Create the parameters for the geocoding request:
+var geocodingParams = {
+    searchText: ['735 Raymond Ave, St Paul, MN, St Paul, MN']  
+
+  };
+
+// Define a callback function to process the geocoding response:
+var onResult = function(result) {
+  var locations = result.Response.View[0].Result,
+    position,
+    marker;
+  // Add a marker for each location found
+  for (i = 0;  i < locations.length; i++) {
+  position = {
+    lat: locations[i].Location.DisplayPosition.Latitude,
+    lng: locations[i].Location.DisplayPosition.Longitude
+  };
+  var icon = new H.map.Icon('../public/assets/red-marker-black-border-md.png');
+  marker = new H.map.Marker(position, {icon: icon});
+  map.addObject(marker);
+  }
+};
+
+// Get an instance of the geocoding service:
+var geocoder = platform.getGeocodingService();
+
+// Call the geocode method with the geocoding parameters,
+// the callback and an error callback function (called if a
+// communication error occurs):
+geocoder.geocode(geocodingParams, onResult, function(e) {
+  alert(e);
+});
+
+
+
+// Add the marker to the map:
+map.addObject(marker);
+
+/*
+
+/ Create a map:
+var map = new H.Map(...);
+
+// Create a marker icon from an image URL:
+var icon = new H.map.Icon('graphics/markerHouse.png');
+
+// Create a marker using the previously instantiated icon:
+var marker = new H.map.Marker({ lat: 52.5, lng: 13.4 }, { icon: icon });
+
+*/
+
+  </script>
+  </body>
+</html>

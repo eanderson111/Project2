@@ -1,52 +1,461 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Registration Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">First Name</label>
-            <input type="text" id="first-name" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    
+    <section id="banner" class="banner">
+      <div class="bg-color">
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="col-md-12">
+              <div class="navbar-header">
+                <button
+                  type="button"
+                  class="navbar-toggle"
+                  data-toggle="collapse"
+                  data-target="#myNavbar"
+                >
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"
+                  ><img
+                    src="img/logo.png"
+                    class="img-responsive"
+                    style="width: 250px; margin-top: -16px;"
+                /></a>
+              </div>
+              <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="/">Home</a></li>
+                  <li class=""><a href="/login">Login</a></li>
+                  <li class=""><a href="/signup">Sign Up</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="example-text">Last Name</label>
-            <input type="text" id="last-name" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+        </nav>
+        <div class="container">
+          <div class="row">
+            <div class="banner-info">
+              <div class="banner-logo text-center">
+                <img src="img/logo-1.JPG" class="img-responsive" />
+              </div>
+              <div class="banner-text text-center">
+                <h1 class="white">A handyman right to your door</h1>
+                <p>
+                  We can help you find the right handyman for a small fee per visit. <br /> Check out everything we do.
+                </p>
+                <a href="/signup" class="btn btn-appoint">Sign Up Today</a>
+              </div>
+              <div class="overlay-detail text-center">
+                <a href="#service"><i class="fa fa-angle-down"></i></a>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="example-text">Credit Card Number</label>
-            <input type="text" id="credit-card" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <div class="row">
-        <div class="col-12">
-        <h3>Users:</h3>
-        <ul id="user-list" class="list-group">
-          {{#each users}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.first_name}} {{this.last_name}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
         </div>
-        {{!-- <div class="col-6">
-        <h3>Favors:</h3>
-        <ul id="favor-list" class="list-group">
-          {{#each favors}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.description}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-        </div> --}}
       </div>
+    </section>
+    <!--/ banner-->
+    <!--service-->
+    <section id="service" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-4">
+            <h2 class="ser-title">Our Services</h2>
+            <hr class="botm-line" />
+            <p>
+              Something you need help with or something go wrong in your house. We are here to help. 
+            </p>
+          </div>
+          <div class="col-md-4 col-sm-4">
+            <div class="service-info">
+              <div class="icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="icon-info">
+                <h4>Save Time</h4>
+                <p>
+                  Don't spend time trying to find the right person to done your work. We have the right person right here to get it do as quickly as you want. 
+                </p>
+              </div>
+            </div>
+            <div class="service-info">
+              <div class="icon">
+                <i class="fas fa-money-bill-wave"></i>
+              </div>
+              <div class="icon-info">
+                <h4>Save Money</h4>
+                <p>
+                  Don't spend hundreds of dollars on repairs or tasks. 
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4">
+            <div class="service-info">
+              <div class="icon">
+                <i class="fas fa-user-friends"></i>
+              </div>
+              <div class="icon-info">
+                <h4>Get to know your neighbors</h4>
+                <p>
+                  Have a task you need help with see if your neighbors can help first.
+                </p>
+              </div>
+            </div>
+            <div class="service-info">
+              <div class="icon">
+                <i class="far fa-smile"></i>
+              </div>
+              <div class="icon-info">
+                <h4>Finding the right man for the Job</h4>
+                <p>
+                   We have trained handyman that would love to help you out.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
+    </section>
+    <!--/ service-->
+    <!--hours-->
+    <section id="cta-1" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="schedule-tab">
+            <div class="col-md-4 col-sm-4 bor-left">
+              <div class="mt-boxy-color"></div>
+              <div class="medi-info">
+                <h3>Emergency Work</h3>
+                <p>
+                  Do you have an Emergency that you need fixed right away. We are here to help.
+                </p>
+                
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <div class="medi-info">
+                <h3>Work with your schedule</h3>
+                <p>
+                Busy schedule we can work with you.
+                </p>
+               
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 mt-boxy-3">
+              <div class="mt-boxy-color"></div>
+              <div class="time-info">
+                <h3>Opening Hours</h3>
+                <table style="margin: 8px 0px 0px;" border="1">
+                  <tbody>
+                    <tr>
+                      <td>Monday - Friday</td>
+                      <td>8:00AM - 9:00PM</td>
+                    </tr>
+                    <tr>
+                      <td>Saturday</td>
+                      <td>9:30 - 8:00PM</td>
+                    </tr>
+                    <tr>
+                      <td>Sunday</td>
+                      <td>9:30AM - 6:00PM</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--hours-->
+    <!--about-->
+    <section id="about" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-4 col-xs-12">
+            <div class="section-title">
+              <h2 class="head-title lg-line">
+                What we do
+              </h2>
+              <hr class="botm-line" />
+              <p class="sec-para">
+                <h3>$20 a month</h3>
+                <h5>co-pay of $75 </h5>
+                After you sign up we will provide you a list of neighbors and handyman that can help with your issue. 
+              </p>
+              <a href="/signup" style="color: maroon; padding-top:10px;"
+                >Sign up..</a
+              >
+            </div>
+          </div>
+          <div class="col-md-9 col-sm-8 col-xs-12">
+            <div
+              style="visibility: visible;"
+              class="col-sm-9 more-features-box"
+            >
+              <div class="more-features-box-text">
+                <div class="more-features-box-text-icon">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+                <div class="more-features-box-text-description">
+                  <h3>Neighbors</h3>
+                  <p>
+                  To save your $75 handyman fee you can choose a neighbor to help you.
+                  </p>
+                </div>
+              </div>
+              <div class="more-features-box-text">
+                <div class="more-features-box-text-icon">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+                <div class="more-features-box-text-description">
+                  <h3>Handyman</h3>
+                  <p>
+                   When you can't find a naighbor to help check out our handyman.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--/ about-->
+    <!--handyman team-->
+    <section id="handyman-team" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="ser-title">Meet Our Handyman!</h2>
+            <hr class="botm-line" />
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-6">
+            <div class="thumbnail">
+              <img src="img/eva.JPG" alt="..." class="team-img" />
+              <div class="caption">
+                <h3>Eva Anderson</h3>
+                <p>Landscaper</p>
+               
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-6">
+            <div class="thumbnail">
+              <img src="img/nate.JPG" alt="..." class="team-img" />
+              <div class="caption">
+                <h3>Nathan Olson</h3>
+                <p>Electrician</p>
+               
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-6">
+            <div class="thumbnail">
+              <img src="img/ben.JPG" alt="..."  class="team-img" />
+              <div class="caption">
+                <h3>Ben Andersen</h3>
+                <p>Plumber</p>
+              
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-6">
+            <div class="thumbnail">
+              <img src="img/irina.JPEG" alt="..." class="team-img" />
+              <div class="caption">
+                <h3>Irina Montgomery</h3>
+                <p>House Cleaner</p>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--/ handyman team-->
+ 
+    <section id="testimonial" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="ser-title">see what the customers are saying?</h2>
+            <hr class="botm-line" />
+          </div>
+          <div class="col-md-4 col-sm-4">
+            <div class="testi-details">
+              <!-- Paragraph -->
+              <p>
+                We had Irina clean our house. With all the kids running round and I working all the time, she was a lifesaver. She had the house spotless. Toys were all picked up, dishes were all done, vaccumed the whole place and other stuff too. Glad my wife got to relax. Best decision we have ever made!
+              </p>
+            </div>
+            <div class="testi-info">
+              <!-- User Image -->
+              <a href="#"
+                ><img src="img/thumb1.jpg" alt="" class="img-responsive"
+              /></a>
+              <!-- User Name -->
+              <h3>Chris<span>Woolcott</span></h3>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4">
+            <div class="testi-details">
+              <!-- Paragraph -->
+              <p>
+                "I could not be more pleased with Nate when he cameover to fix our light in the basement. His work meets highest standards."
+              </p>
+            </div>
+            <div class="testi-info">
+              <!-- User Image -->
+              <a href="#"
+                ><img src="img/thumb2.jpg" alt="" class="img-responsive"
+              /></a>
+              <!-- User Name -->
+              <h3>Nathan<span>Perfetti</span></h3>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4">
+            <div class="testi-details">
+              <!-- Paragraph -->
+              <p>
+                "Ben did an excellent job fixing the leaky pipe. Would definitely use him again."
+              </p>
+            </div>
+            <div class="testi-info">
+              <!-- User Image -->
+              <a href="#"
+                ><img src="img/thumb3.jpeg" alt="" class="img-responsive"
+              /></a>
+              <!-- User Name -->
+              <h3>John<span>Creps</span></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- about us-->
+    <section id="cta-2" class="section-padding">
+      <div class="container">
+        <div class=" row">
+          <div class="col-md-2"></div>
+          <div class="text-right-md col-md-4 col-sm-4">
+            <h2 class="section-title white lg-line">
+              « A few words<br />
+              about us »
+            </h2>
+          </div>
+          <div class="col-md-4 col-sm-5">
+            We have been business for five years. Our handymen are licensed and bonded. We have completed more than 50,000 jobs in our 5 years. Customers experience is our top priority. We are here to serve you.
+            <p class="text-right text-primary"><i>— The Handyman Plan</i></p>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+    </section>
+    <!-- about us-->
+    <!--Whats covered-->
+    <section id="whatsCovered" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="ser-title">What's Covered</h2>
+            <hr class="botm-line" />
+          </div>
+          <div class="col-md-4 col-sm-4">
+            <h3>Plumbing</h3>
+            <h3>Appliances</h3><h3>Heating & A/C</h3><h3>Electrical</h3><h3>Landscaping</h3><h3>Housecleaning</h3><h3>Painting & Staining</h3>
+          </div>
+          <div class="col-md-8 col-sm-8 marb20">
+            
+            <h3>Flooring</h3>
+            <h3>Windows & Doors</h3>
+            <h3>Roofing & Gutters</h3>
+            <h3>Garages, doors, openers</h3>
+            <h3>Household chores</h3>
+            <h3>Home winterization</h3>
+          
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!--footer-->
+    <footer id="footer">
+      <div class="top-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-sm-4 marb20">
+              <div class="ftr-tle">
+                <h4 class="white no-padding">Our Mission</h4>
+              </div>
+              <div class="info-sec">
+                <p>
+                  To enrich the life of our customers by providing exceptional work.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 marb20">
+              <div class="ftr-tle">
+                <h4 class="white no-padding">Quick Links</h4>
+              </div>
+              <div class="info-sec">
+                <ul class="quick-info">
+                  <li>
+                    <a href="/"><i class="fa fa-circle"></i>Home</a>
+                  </li>
+                  <li>
+                    <a href="/signup"><i class="fa fa-circle"></i>Sign Up</a>
+                  </li>
+                  <li>
+                    <a href="/login"
+                      ><i class="fa fa-circle"></i>Login</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 marb20">
+              <div class="ftr-tle">
+                <h4 class="white no-padding">Follow us</h4>
+              </div>
+              <div class="info-sec">
+                <ul class="social-icon">
+                  <li class="bglight-blue"><i class="fa fa-facebook"></i></li>
+                  <li class="bgred"><i class="fa fa-google-plus"></i></li>
+                  <li class="bgdark-blue"><i class="fa fa-linkedin"></i></li>
+                  <li class="bglight-blue"><i class="fa fa-twitter"></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-line">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              Copyright &copy; 2019 Eva Anderson, Nathan Olson, Ben Andersen,
+              Irina Montgomery
+              <div class="credits">
+                
+                <a href="https://bootstrapmade.com/">BootstrapMade.com</a>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--/ footer-->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+  
+ 
