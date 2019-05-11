@@ -17,8 +17,12 @@
             <div class="collapse navbar-collapse navbar-right" id="myNavbar">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#banner">Home</a></li>
+
+                <li class=""><a href="#service">Logout</a></li>
+
                 <li class=""><a href="#service">Login</a></li>
                 <li class=""><a href="#about">Sign Up</a></li>
+
               </ul>
             </div>
           </div>
@@ -39,7 +43,8 @@
                   </div>
                   <div class="col-md-4 col-sm-4">
                     <h3 class="profile"> {{this.address}}</h3>
-                    <h3 class="profile">{{this.city}} , &nbsp {{this.state}}</h3>
+                    <h3 class="profile">{{this.city}} , &nbsp {{this.state}} &nbsp {{this.zipcode}}</h3>
+
                     <h3 class="profile">Email: {{this.email}}</h3>
                       <a href="#" class="request btn btn-appoint">Request Service</a>
                   </div>
