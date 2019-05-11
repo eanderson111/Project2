@@ -9,9 +9,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="/js/index.js"></script>
 
+  
 </head>
 
 <style>
@@ -20,9 +19,100 @@
         padding-right: 2em;
         padding-top: 2em;
     }
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline-block;
+}
+
+.hiddeninput{ 
+  display: none;
+}
+
+label {
+  border: 1px solid #fff;
+  padding: 10px;
+  display: block;
+  position: relative;
+  margin: 10px;
+  cursor: pointer;
+}
+
+label:before {
+  background-color: white;
+  color: white;
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  border: 1px solid grey;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 28px;
+  transition-duration: 0.4s;
+  transform: scale(0);
+}
+
+label img {
+  height: 150px;
+  width: 150px;
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+}
+
+:checked + label {
+  border-color: #ddd;
+}
+
+:checked + label:before {
+  content: "✓";
+  background-color: grey;
+  transform: scale(1);
+}
+
+:checked + label img {
+  transform: scale(0.9);
+  box-shadow: 0 0 5px #333;
+  z-index: -1;
+}
+
+.form-check {
+  display: inline-block !important;
+}
+
 </style>
 
+
 <body>
+
+
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                    <div class="form-check" id="checkboxes">
+                      </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+</div>
+
     <div class = container>
         <form action="" method="POST" role="form">
             <div class="form-row">
@@ -41,11 +131,13 @@
                   <label for="inputAddress">Address</label>
                   <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
                 </div>
+
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputCity">City</label>
                     <input type="text" class="form-control" id="inputCity">
                   </div>
+                  
                   <div class="form-group col-md-4">
                     <label for="inputState">State</label>
                     <select id="inputState" class="form-control">
@@ -103,10 +195,12 @@
                             <option value="WY">Wyoming</option>
                     </select>
                   </div>
+                  
                   <div class="form-group col-md-2">
                     <label for="inputZip">Zip</label>
                     <input type="text" class="form-control" id="inputZip">
                   </div>
+               
                 </div>
 
 
@@ -119,90 +213,178 @@
                       <label for="signupPassword">Password</label>
                       <input type="password" class="form-control" id="signupPassword" placeholder="Password">
                     </div>
-
                   </div>
-
-                  </div
 
                   <div class="form-row">
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-12" id="skills-selection">
                             <label for="signupCategory">What are you handy with? (Select all that apply)</label><br>
                                 <ul>
-                                    <li><input type="checkbox" id="cb1" data-toggle="modal" data-target="#exampleModal"/>
-                                    <label for="cb1"><img src="../public/images/appliances3.png" /></label>
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                              <div class="modal-content">
-                                                <div class="modal-header">
-                                                  <h5 class="modal-title" id="exampleModalLabel">Plumbing</h5>
-                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                  </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                        <div class="form-check">
-                                                                <input type="checkbox" name="plumbing[]" value="drain"> Drain cleaning<br>
-                                                                <input type="checkbox" name="plumbing[]" value="faucet"> Faucets installation or repair<br>
-                                                                <input type="checkbox" name="plumbing[]" value="disposal"> Garbage disposal malfunctioning<br>
-                                                                <input type="checkbox" name="plumbing[]" value="drain"> Septic systems & mains<br>
-                                                                <input type="checkbox" name="plumbing[]" value="drain"> Sprinkler systems<br>
-                                                                <input type="checkbox" name="plumbing[]" value="drain"> Water heaters<br>
-                                                                <input type="checkbox" name="plumbing[]" value="drain"> Water softening or purification<br>
-                                                              </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                  <button type="submit" class="btn btn-primary">Save changes</button>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                    </li>
 
-                                    <li><input type="checkbox" id="cb2" />
-                                    <label for="cb2"><img src="../public/images/electrical3.png" /></label>
+                                  <li><input type="checkbox" value="plumbingArray" id ="plumbing" class="hiddeninput" name="plumbing"/>
+                                    <label for="plumbing" value="plumbing" ><img src="../public/images/plumbing3.png" data-toggle="modal" data-target="#exampleModal"/></label>
                                     </li>
-                                    <li><input type="checkbox" id="cb3" />
-                                    <label for="cb3"><img src="../public/images/appliances3.png" /></label>
+                                    <li><input type="checkbox" value="electrical" id="electrical" class="hiddeninput" name="electrical"/>
+                                    <label for="electrical"><img src="../public/images/electrical3.png" /></label>
                                     </li>
-                                    <li><input type="checkbox" id="cb4" />
-                                    <label for="cb4"><img src="../public/images/household3.png" /></label>
+                                    <li><input type="checkbox" value="appliances" id="appliances"  class="hiddeninput" name="appliances"/>
+                                    <label for="appliances" id="appliances"><img src="../public/images/appliances3.png" /></label>
                                     </li>
-                                    <li><input type="checkbox" id="cb5" />
-                                    <label for="cb5"><img src="../public/images//landscaping3.png" /></label>
+                                    <li><input type="checkbox" value="household" id="household" class="hiddeninput" name="household"/>
+                                    <label for="household" id="household"><img src="../public/images/household3.png" /></label>
                                     </li>
-                                    <li><input type="checkbox" id="cb6" />
-                                    <label for="cb6"><img src="../public/images/painting3.png" /></label>
+                                    <li><input type="checkbox" value="landscaping" id="landcaping" class="hiddeninput"  name="landscaping"/>
+                                    <label for="landcaping" id="landscaping"><img src="../public/images//landscaping3.png" /></label>
                                     </li>
-                                    <li><input type="checkbox" id="cb7" />
-                                     <label for="cb7"><img src="../public/images/housecleaning3.png" /></label>
+                                    <li><input type="checkbox" value="painting" id="painting" class="hiddeninput" name="painting"/>
+                                    <label for="painting" id="painting"><img src="../public/images/painting3.png" /></label>
                                     </li>
-                                    <li><input type="checkbox" id="cb8" />
-                                    <label for="cb8"><img src="../public/images/flooring3.png" /></label>
+                                    <li><input type="checkbox" value="housecleaning" id="housecleaning"  class="hiddeninput" name="housecleaning"/>
+                                     <label for="housecleaning" id="housecleaning"><img src="../public/images/housecleaning3.png" /></label>
                                     </li>
-                                    <li><input type="checkbox" id="cb9" />
-                                    <label for="cb9"><img src="../public/images/roofing3.png" /></label>
+                                    <li><input type="checkbox" value="heating" id="heating"  class="hiddeninput" name="heating"/>
+                                    <label for="heating" id="heating"><img src="../public/images/heating3.png" /></label>
                                     </li>
-                                    <li><input type="checkbox" id="cbc1" />
-                                    <label for="cbc1"><img src="../public/images/heating3.png" /></label>
-                                    </li>
-                                    <li><input type="checkbox" id="cbc2" />
-                                    <label for="cbc2"><img src="../public/images/winterization3.png" /></label>
-                                    </li>
-                                    <li><input type="checkbox" id="cbc3" />
-                                    <label for="cbc3"><img src="../public/images/windows3.png" /></label>
+                                    <li><input type="checkbox" value="windows" id="windows"  class="hiddeninput" name="windows"/>
+                                    <label for="windows" id="windows"><img src="../public/images/windows3.png" /></label>
                                     </li>
                               </ul>
-                    </div>
-                  </div>
 
-                <div class="form-group">
-                </div class="sign-up">
-                <button type="submit" class="btn btn-primary" id="signUp">Sign up</button>
+                      <div class="form-group">
+                    </div class="sign-up">
+                    <button type="submit" class="btn btn-primary" id="signUp">Sign up</button>
                 </div>
+
               </form>
-            </div>
+        </div>
 
 </body>
 
+<script>
+
+
+ $(document).ready(function() {
+
+  var subCategories = {
+
+    plumbing: ["Drain Clearing",
+          "Faucets, Fixtures & Pipes",
+          "Garbage Disposal",
+          "Septic Systems, Sewers & Water Mains",
+          "Sprinkler Systems",
+          "Water Heaters",
+          "Boilers & Radiators",
+          "Pumps",
+          "Water Softening & Purification"],
+
+    electrical: [
+        "Fixtures",
+        "Fuse",
+        "Outlets, Panels, Switches & Wiring",
+        "Cables, Networks & Telephones",
+        "Electronics, Computers & Home Media Systems",
+        "Appliances",
+        "Heating & Thermostats",
+        "Home Security & Alarms"],
+  
+    appliances: ["Washing machine",
+        "Refrigerator",
+        "Dishwasher",
+        "Dryer",
+        "Range, stove or oven",
+        "Garbage disposal"],
+
+    household: [
+        "Carpet & Draperies",
+        "Windows",
+        "Exterior Home",
+        "Interior Home",
+        "Ducts & Vents - Clean",
+        "Chimney & Fireplace - Clean",
+        "Waste Material & Junk Removal"],
+
+  landcaping: ["Lawn Maintenance",
+        "Bushes, Shrubs & Trees pruning",
+        "Fences",
+        "Outdoor Patios, Steps & Walkways fixes",
+        "Mowers/mowing",
+        "Planting"],
+
+    painting: ["Exterior Painting or Staining",
+        "Interior Painting or Staining",
+        "Paint Removal and Cleaning",
+        "Wallpapering"],
+    housecleaning: ["Carpet & Draperies",
+        "Windows",
+        "Exterior Home",
+        "Interior Home",
+        "Ducts & Vents",
+        "Chimney & Fireplace"],
+    heating: [
+        "Heating Systems",
+        "Water Heaters",
+        "Ducts & Vents",
+        "Fireplaces, Inserts, Stoves & Barbecues",
+        "Central Air Conditioning - Repair or Service",
+        "Window A/C Unit - Service or Relocate"],
+    windows: [
+        "Stuck Windows",
+        "Cracked Glass",
+        "Leaks & Moisture",
+        "Rotted Window Sill",
+        "Heavy Drafts",
+        "Locks & Hinges",]
+}
+        
+
+  $('input[type="checkbox"]').click(function() {
+    // $.each($("input[name='plumbing']:checked"), function() {
+    //   console.log(plumbingArray)
+    // });
+
+//  for (i=0; i<skills.length; i++){
+// 	console.log(skills);
+// }
+
+    var categoryChosen = this.id;
+   
+  
+
+    $('#myModal').modal('show').on('shown.bs.modal', function() {
+     
+      $('#checkboxes').html("")
+
+      // console.log(categoryChosen);
+      // console.log(subCategories[categoryChosen]);
+
+    $.each(subCategories[categoryChosen], function(i)
+    {
+        var li = $('<li/>')
+            .addClass('ui-menu-item')
+            .attr('role', 'menuitem')
+            .appendTo($('#checkboxes'));
+      
+       var aaa = $('<a>')
+            .addClass('ui-all')
+            .appendTo(li);
+      
+      var input = $('<input/>')
+            .addClass('ui-all')
+            .attr('type', 'checkbox')
+            .attr('id' , categoryChosen + "[]")
+            .attr('name' , subCategories[categoryChosen][i])
+            .appendTo(aaa);
+             
+      var aaaa = $('<span>')
+            .text(subCategories[categoryChosen][i])
+            .appendTo(aaa);
+    })
+  })
+  $('#button').trigger("reset");
+})
+});
+
+
+</script>
+
 </html>
+
