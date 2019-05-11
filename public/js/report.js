@@ -5,18 +5,15 @@ $(document).ready(function() {
     var emergencyCheck = $("#emergency").val().trim();
     var workCategoryVal = $("#natureWork").val().trim();
     var scheduleCategory = $("#timeWork").val().trim();
+    var submittedByVal = 0; //reassigned when logged in user queried
     
     // hardcoded - replace one by one with new working functionality
-    var submittedByVal= 1;
     var skillIdVal = 3;
   
     $.get("/api/user_data").then(function(data) {
-        // $(".member-name").text(data.email);
+        
         console.log(data);
-          id = data.id
-          console.log(id + " line 9");
-          alert("here");
-       // $(".name").text(data.first_name);
+        submittedByVal = data.id;
     
     });
 
