@@ -10,6 +10,16 @@ $(document).ready(function() {
     var submittedByVal= 1;
     var skillIdVal = 3;
   
+    $.get("/api/user_data").then(function(data) {
+        // $(".member-name").text(data.email);
+        console.log(data);
+          id = data.id
+          console.log(id + " line 9");
+          alert("here");
+       // $(".name").text(data.first_name);
+    
+    });
+
     // When the form is submitted, we validate there's an email and password entered
     ticketForm.on("submit", function(event) {
       event.preventDefault();
