@@ -14,54 +14,64 @@
 
 <style>
     .container {
-        padding-left: 2em;
+        padding-left: 5px;
         padding-right: 2em;
         padding-top: 2em;
     }
+p, h1, slct2 {
+    margin: 15px;
+}
+
+label {
+    margin: 10px;
+    margin-left: 15px;
+}
+input {
+    margin: 10px;
+    margin-left: 15px;
+}
+.form-group {
+    padding-left: 10px}
+
 </style>
 
 <body>
     <div class = container>
         <form action="" method="POST" role="form">
-
-         <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="categories">What problems are you experiencing (category)?</label>
-                <select class="form-control" id="categories">
-                    <option>Plumbing</option>
-                    <option>Appliances</option>
-                    <option>Heating & A/C</option>
-                    <option>Electrical</option>
-                    <option>Landscaping</option>
-                    <option>Housecleaning</option>
-                    <option>Painting & Staining</option>
-                    <option>Flooring</option>
-                    <option>Windows & Doors</option>
-                    <option>Roofing & Gutters</option>
-                    <option>Household Chores</option>
-                    <option>Home Winterization</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                    <label for="emergency">Is this an emergency?</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="emergency" id="emergency">
-                        <label class="form-check-label" for="defaultCheck1">Yes</label>
+                <h1>What type of handyman help do you need?</h1>
+                <div class="form-row-1">
+                        <div class="form-group col-md-12" id="skills-selection">
+                            <select id="slct1" class="form-control" name="slct1" onchange="populate(this.id, 'slct2')">
+                            <option value="Plumbing">Plumbing</option>
+                            <option value="Electrical">Electrical</option>
+                            <option value="Appliances">Appliances</option>
+                            <option value="Household">Household</option>
+                            <option value="Landscaping">Landscaping</option>
+                            <option value="Painting">Painting</option>
+                            <option value="Housecleaning">Housecleaning</option>
+                            <option value="Heating">Heating & Cooling</option>
+                            <option value="Windows">Windows & Doors</option>
+                            </select>
+                    <hr />
                     </div>
+                </div>
+                
+                <p>Let's get more specific:</p>
+                <div id="slct2"></div>
+                <hr />
 
-                    <div class="form-check">
-                        <input class="non-emergency" type="checkbox" value="non-emergency" id="emergency">
-                        <label class="form-check-label" for="defaultCheck1">No</label>
-                    </div>
+        <div class="form-row-2">
+            <div class="form-group col-md-12">
+                    <label for="emergency">Is this an emergency?</label><br>
+                    <input type="checkbox" name="emergency" value="emergency"> Yes<br>
+                    <input type="checkbox" name="non-emergency" value="non-emergency"> No <br>
             </div>
 
-            <div class="form-row">
+
+            <div class="form-row-3">
                 <div class="form-group col-md-12">
                         <label for="exampleFormControlSelect1">What is the nature of the work to be done?</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select class="form-control" id="natureWork">
                             <option>Repairs</option>
                             <option>Installation</option>
                             <option>Assembly</option>
@@ -70,10 +80,10 @@
                 </div>
             </div>
 
-            <div class="form-row">
+            <div class="form-row-4">
                 <div class="form-group col-md-12">
                         <label for="exampleFormControlSelect1">When were you hoping to have the work done?</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select class="form-control" id="timeWork">
                             <option>Today</option>
                             <option>Tomorrow</option>
                             <option>2-3 days</option>
@@ -81,7 +91,113 @@
                         </select>
                 </div>
             </div>
+
+            <div class="form-group row">
+                    <div class="col-sm-12">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
         </form>
+    </div>
 </body>
+
+<script type="text/javascript">
+    function populate(slct1, slct2) {
+        var s1 = document.getElementById(slct1);
+        var s2 = document.getElementById(slct2);
+        s2.innerHTML = "";
+        if (s1.value == "Plumbing") {
+            var optionArray = ["Drain Clearing",
+                "Faucets, Fixtures & Pipes",
+                "Garbage Disposal",
+                "Septic Systems, Sewers & Water Mains",
+                "Sprinkler Systems",
+                "Water Heaters",
+                "Boilers & Radiators",
+                "Pumps",
+                "Water Softening & Purification"];
+        } else if (s1.value == "Electrical") {
+            var optionArray = ["Fixtures",
+                "Fuse",
+                "Outlets, Panels, Switches & Wiring",
+                "Cables, Networks & Telephones",
+                "Electronics, Computers & Home Media Systems",
+                "Appliances",
+                "Heating & Thermostats",
+                "Home Security & Alarms"];
+        } else if (s1.value == "Appliances") {
+            var optionArray = ["Washing machine",
+                "Refrigerator",
+                "Dishwasher",
+                "Dryer",
+                "Range, stove or oven",
+                "Garbage disposal"];
+        } else if (s1.value == "Household") {
+                var optionArray = ["Carpet & Draperies",
+                "Windows",
+                "Exterior Home",
+                "Interior Home",
+                "Ducts & Vents - Clean",
+                "Chimney & Fireplace - Clean",
+                "Waste Material & Junk Removal"];
+        } else if (s1.value == "Landscaping") {
+                var optionArray = ["Lawn Maintenance",
+                "Bushes, Shrubs & Trees pruning",
+                "Fences",
+                "Outdoor Patios, Steps & Walkways fixes",
+                "Mowers/mowing",
+                "Planting"];
+        } else if (s1.value == "Painting") {
+                var optionArray = ["Exterior Painting or Staining",
+                "Interior Painting or Staining",
+                "Paint Removal and Cleaning",
+                "Wallpapering"];
+        } else if (s1.value == "Housecleaning") {
+                var optionArray = ["Carpet & Draperies",
+                "Windows",
+                "Exterior Home",
+                "Interior Home",
+                "Ducts & Vents",
+                "Chimney & Fireplace"];
+        } else if (s1.value == "Heating") {
+                var optionArray = ["Heating Systems",
+                "Water Heaters",
+                "Ducts & Vents",
+                "Fireplaces, Inserts, Stoves",
+                "Central Air Conditioning",
+                "Window A/C Unit"];
+        } else if (s1.value == "Windows") {
+                var optionArray = ["Stuck Windows",
+                "Cracked Glass",
+                "Leaks & Moisture",
+                "Rotted Window Sill",
+                "Heavy Drafts",
+                "Locks & Hinges"];
+        }
+
+    for (var option in optionArray) {
+        if (optionArray.hasOwnProperty(option)) {
+            var pair = optionArray[option];
+            var checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.name = pair;
+            checkbox.value = pair;
+            s2.appendChild(checkbox);
+    
+            var label = document.createElement('label')
+            label.htmlFor = pair;
+            label.appendChild(document.createTextNode(pair));
+
+            s2.appendChild(label);
+            s2.appendChild(document.createElement("br"));    
+        }
+    }
+}
+$( "button" ).click(function() {
+    alert ("We've received your submission and are contacting your handyman! We'll send you a Calendly link with options shortly.")
+})
+
+
+</script>
 
 </html>
