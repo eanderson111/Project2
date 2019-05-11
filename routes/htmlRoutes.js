@@ -33,6 +33,16 @@ module.exports = function(app) {
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
+
+
+  app.get("/report", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/report.html"));
+  });
+
+  app.get("/report/submitted", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/reportSubmitted.html"));
+  });
+
 //
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be 
