@@ -1,0 +1,46 @@
+h1 {
+  color: white;
+}
+
+
+li {
+  padding: 5px;
+  margin: 5px;
+  background: #ec7f7f;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.create-update-form {
+  padding: 5px;
+  margin: 5px;
+  background: aqua;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+
+.selected {
+  background-color: brown;
+  color: #FFF;
+}
+
+#tableN {
+  background: #b9ec90;
+}
+
+#tableC {
+    background: #b9ec90;
+  }
+  
+
+#addSand{
+  background: white;
+}
+
+#head {
+  color: white ;
+}

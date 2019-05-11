@@ -14,6 +14,7 @@ $(document).ready(function() {
     console.log(userData)
 
     if (!userData.email || !userData.password) {
+      alert("You must enter ALL the information!");
       return;
     }
 
@@ -21,7 +22,7 @@ $(document).ready(function() {
     loginUser(userData.email, userData.password);
     emailInput.val("");
     passwordInput.val("");
-    alert("you are now signed in")
+    //alert("you are now signed in")
   });
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
@@ -39,3 +40,5 @@ $(document).ready(function() {
   }
 
 });
+
+

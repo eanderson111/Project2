@@ -40,11 +40,14 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   street = $clientAddress.val() + "," + $clientCity.val() + ","+ $clientState.val()
+  console.log(street)
 
- // getAddress(street)
-  //.then(function(){
+ getAddress(street)
+ 
+ //.then(function(data){
+ //       makeClient(lat,lng)
+ //     });
 
-  //makeClient()
   
   var client = {
     first_name: $clientFName.val().trim(),
@@ -60,7 +63,7 @@ var handleFormSubmit = function(event) {
     password: $clientPass.val().trim()
   };
 
-  street = client.address + "," + client.city + ","+ client.state
+  //street = client.address + "," + client.city + ","+ client.state
   console.log(street)
   console.log(typeof street)
  //getAddress(street)
@@ -73,10 +76,13 @@ var handleFormSubmit = function(event) {
   }
 
  // });
+
  
   
-  API.saveClient(client).then(function() {
-    alert("You are now signed up")
+  API.saveClient(client).then(function(data) {
+    //window.location.replace(data);
+    loginUser(client.email, client.password)
+   alert("You are now signed up")
   });
 
   $clientFName.val("");
@@ -89,7 +95,7 @@ var handleFormSubmit = function(event) {
   $clientEmail.val("")
   $clientPass.val("")
 
-
+ 
  
 };
 
@@ -129,7 +135,7 @@ var getAddress = function(street) {
 
     geo.lat = lat
     geo.lng = lng
-
+    
     return(geo)
 
   }
@@ -137,18 +143,20 @@ var getAddress = function(street) {
 
 }
 
-var makeClient = function(){
+var makeClient = function(lat,lng){
 
   var client = {
     first_name: $clientFName.val().trim(),
-
+    last_name: $clientLName.val().trim(),
     address: $clientAddress.val().trim(),
     city: $clientCity.val().trim(),
     state: $clientState.val().trim(),
-    postal_code: $clientPostal.val().trim(),
-    skills: $clientSkills.val().trim(),
+    zip: $clientPostal.val().trim(),
+    skills: $clientSkills,//$clientSkills.val().trim(),
     lat: lat,
-    lng: lng
+    lng: lng,
+    email: $clientEmail.val().trim(),
+    password: $clientPass.val().trim()
   };
 
   street = client.address + "," + client.city + ","+ client.state
@@ -163,6 +171,19 @@ var makeClient = function(){
     return;
   }
 
+}
+
+function loginUser(email, password) {
+  $.post("/api/login", {
+    email: email,
+    password: password
+  }).then(function(data) {
+    window.location.replace(data);
+    
+    // If there's an error, log the error
+  }).catch(function(err) {
+    console.log(err);
+  });
 }
 
 /*With this data for each user we can then based on selections add pins onto the map based on search criteria */

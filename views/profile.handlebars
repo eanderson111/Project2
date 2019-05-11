@@ -16,9 +16,11 @@
             </div>
             <div class="collapse navbar-collapse navbar-right" id="myNavbar">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#banner">Home</a></li>
-                <li class=""><a href="#service">Login</a></li>
-                <li class=""><a href="#about">Sign Up</a></li>
+                
+
+                <li class=""><a href="/logout">Logout</a></li>
+
+                
               </ul>
             </div>
           </div>
@@ -33,22 +35,35 @@
             <section id="profile" class="section-padding">
               <div class="container">
                 <div class="row">
-                  <div class="col-md-12">
-                    <h2 class="profile ser-title">{{this.first_name}} &nbsp {{this.last_name}}</h2>
+                  <div class="col-md-6">
+                    <h2 class="profile ser-title">{{this.name}}</h2>
                     <hr class="botm-line" />
                   </div>
-                  <div class="col-md-4 col-sm-4">
-                    <h3 class="profile"> {{this.address}}</h3>
-                    <h3 class="profile">{{this.city}} , &nbsp {{this.state}}</h3>
-                    <h3 class="profile">Email: {{this.email}}</h3>
-                      <a href="#" class="request btn btn-appoint">Request Service</a>
-                  </div>
-                  <div class="col-md-8 col-sm-8 marb20">
 
-
-                  </div>
-
+                  
                 </div>
+
+           <!--{{this.first_name}} &nbsp {{this.last_name}}    {{this.address}}    {{this.city}} , &nbsp {{this.state}} &nbsp {{this.zipcode}}   {{this.email}}-->
+                <div class="row">
+                  <div class="col-md-4 col-sm-4">
+                    <h3 class="profile">735 Raymond Ave</h3>
+                    <h3 class="profile">St Paul, MN, 55114</h3>
+                    <h3 class="profile">Email: Olsonathan@gmail.com</h3>
+                  </div>
+                    
+                    <div class="col-md-6">
+                       <div id="map" style="width: 500px; height: 300px; background: grey"></div>
+                       <div id="panel" style="width: 500px;"></div>
+                    </div>
+                </div>                       
+                  
+                <div class="row">
+                  <div class="col-md-8 col-sm-8 marb20">
+                    <a href="/report" class="request btn btn-appoint">Request Service</a>
+                  </div>
+                </div>
+
+            </div>
               </div>
           </div>
         </div>
@@ -77,13 +92,13 @@
             <div class="info-sec">
               <ul class="quick-info">
                 <li>
-                  <a href="index.html"><i class="fa fa-circle"></i>Home</a>
+                  <a href="/logout"><i class="fa fa-circle"></i>Home</a>
                 </li>
                 <li>
-                  <a href="#service"><i class="fa fa-circle"></i>Sign Up</a>
+                  <a href="/signup"><i class="fa fa-circle"></i>Sign Up</a>
                 </li>
                 <li>
-                  <a href="#contact"><i class="fa fa-circle"></i>Login</a>
+                  <a href="/login"><i class="fa fa-circle"></i>Login</a>
                 </li>
               </ul>
             </div>
@@ -124,3 +139,6 @@
 
 
 </div>
+
+<script type="text/javascript" src="/js/profile.js"></script>
+<script type="text/javascript" src='/js/app.js'></script>
