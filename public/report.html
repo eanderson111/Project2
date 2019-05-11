@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/report.js"></script>
 
 </head>
 
@@ -39,7 +40,7 @@ input {
 
 <body>
     <div class = container>
-        <form action="" method="POST" role="form">
+        <form id="ticket" action="" method="POST" role="form">
                 <h1>What type of handyman help do you need?</h1>
                 <div class="form-row-1">
                         <div class="form-group col-md-12" id="skills-selection">
@@ -65,8 +66,8 @@ input {
         <div class="form-row-2">
             <div class="form-group col-md-12">
                     <label for="emergency">Is this an emergency?</label><br>
-                    <input type="checkbox" name="emergency" value="emergency"> Yes<br>
-                    <input type="checkbox" name="non-emergency" value="non-emergency"> No <br>
+                    <input type="checkbox" id="emergency" name="emergency" value="emergency"> Yes<br>
+                    <input type="checkbox" id="non-emergency" name="non-emergency" value="non-emergency"> No <br>
             </div>
 
 
@@ -74,10 +75,10 @@ input {
                 <div class="form-group col-md-12">
                         <label for="exampleFormControlSelect1">Tell us more about the nature of the work to be done?</label>
                         <select class="form-control" id="natureWork">
-                            <option>Repairs</option>
-                            <option>Installation</option>
-                            <option>Assembly</option>
-                            <option>Maintenance</option>
+                            <option value="0">Repairs</option>
+                            <option value="1">Installation</option>
+                            <option value="2">Assembly</option>
+                            <option value="3">Maintenance</option>
                         </select>
                 </div>
             </div>
@@ -195,9 +196,9 @@ input {
         }
     }
 }
-$( "button" ).click(function() {
-    alert ("We've received your submission and are contacting your handyman! We'll send you a Calendly link with options shortly.")
-})
+// $( "button" ).click(function() {
+//     alert ("We've received your submission and are contacting your handyman! We'll send you a Calendly link with options shortly.")
+// })
 
 
 </script>

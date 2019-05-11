@@ -42,19 +42,19 @@ module.exports = function(sequelize, DataTypes) {
     },
     address: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     city: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     state: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     zip: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: false
     },
     lat: {
       type: DataTypes.FLOAT(7,5),

@@ -35,6 +35,16 @@ module.exports = function(app) {
     });
   });
 
+  // Create a new example
+  app.post("/api/report", function(req, res) {
+
+    console.log("I am inside the post route");
+    db.Ticket.create(req.body).then(function(dbTicket) {
+
+      res.json(dbTicket);
+    });
+  });
+
 
   // Get an example by id
   app.get("/api/users/:id", function(req, res) {
@@ -56,6 +66,7 @@ module.exports = function(app) {
   app.get("/api/user_data", function(req, res) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
+      console.log("not logged in");
       res.json({});
     }
     else {
