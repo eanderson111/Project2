@@ -48,9 +48,9 @@ input {
                             <option value="Plumbing">Plumbing</option>
                             <option value="Electrical">Electrical</option>
                             <option value="Appliances">Appliances</option>
-                            <option value="Household">Household</option>
+                            <option value="Household Chores">Household Chores</option>
                             <option value="Landscaping">Landscaping</option>
-                            <option value="Painting">Painting</option>
+                            <option value="Painting & Staining">Painting & Staining</option>
                             <option value="Housecleaning">Housecleaning</option>
                             <option value="Heating">Heating & Cooling</option>
                             <option value="Windows">Windows & Doors</option>
@@ -108,82 +108,92 @@ input {
         var s1 = document.getElementById(slct1);
         var s2 = document.getElementById(slct2);
         s2.innerHTML = "";
-        if (s1.value == "Plumbing") {
-            var optionArray = ["Drain Clearing",
-                "Faucets, Fixtures & Pipes",
-                "Garbage Disposal",
-                "Septic Systems, Sewers & Water Mains",
-                "Sprinkler Systems",
-                "Water Heaters",
-                "Boilers & Radiators",
-                "Pumps",
-                "Water Softening & Purification"];
-        } else if (s1.value == "Electrical") {
-            var optionArray = ["Fixtures",
-                "Fuse",
-                "Outlets, Panels, Switches & Wiring",
-                "Cables, Networks & Telephones",
-                "Electronics, Computers & Home Media Systems",
-                "Appliances",
-                "Heating & Thermostats",
-                "Home Security & Alarms"];
-        } else if (s1.value == "Appliances") {
-            var optionArray = ["Washing machine",
-                "Refrigerator",
-                "Dishwasher",
-                "Dryer",
-                "Range, stove or oven",
-                "Garbage disposal"];
-        } else if (s1.value == "Household") {
-                var optionArray = ["Carpet & Draperies",
-                "Windows",
-                "Exterior Home",
-                "Interior Home",
-                "Ducts & Vents - Clean",
-                "Chimney & Fireplace - Clean",
-                "Waste Material & Junk Removal"];
-        } else if (s1.value == "Landscaping") {
-                var optionArray = ["Lawn Maintenance",
-                "Bushes, Shrubs & Trees pruning",
-                "Fences",
-                "Outdoor Patios, Steps & Walkways fixes",
-                "Mowers/mowing",
-                "Planting"];
-        } else if (s1.value == "Painting") {
-                var optionArray = ["Exterior Painting or Staining",
-                "Interior Painting or Staining",
-                "Paint Removal and Cleaning",
-                "Wallpapering"];
-        } else if (s1.value == "Housecleaning") {
-                var optionArray = ["Carpet & Draperies",
-                "Windows",
-                "Exterior Home",
-                "Interior Home",
-                "Ducts & Vents",
-                "Chimney & Fireplace"];
-        } else if (s1.value == "Heating") {
-                var optionArray = ["Heating Systems",
-                "Water Heaters",
-                "Ducts & Vents",
-                "Fireplaces, Inserts, Stoves",
-                "Central Air Conditioning",
-                "Window A/C Unit"];
-        } else if (s1.value == "Windows") {
-                var optionArray = ["Stuck Windows",
-                "Cracked Glass",
-                "Leaks & Moisture",
-                "Rotted Window Sill",
-                "Heavy Drafts",
-                "Locks & Hinges"];
+        var optionArray = [];
+        var idArray = [];
+        for(var d in dataFromApi) {
+            if(dataFromApi[d].type === s1.value) {
+                optionArray.push(dataFromApi[d].description);
+                idArray.push(dataFromApi[d].id);
+            }
         }
+        // if (s1.value == "Plumbing") {
+        //     var optionArray = ["Drain Clearing",
+        //         "Faucets, Fixtures & Pipes",
+        //         "Garbage Disposal",
+        //         "Septic Systems, Sewers & Water Mains",
+        //         "Sprinkler Systems",
+        //         "Water Heaters",
+        //         "Boilers & Radiators",
+        //         "Pumps",
+        //         "Water Softening & Purification"];
+        // } else if (s1.value == "Electrical") {
+        //     var optionArray = ["Fixtures",
+        //         "Fuse",
+        //         "Outlets, Panels, Switches & Wiring",
+        //         "Cables, Networks & Telephones",
+        //         "Electronics, Computers & Home Media Systems",
+        //         "Appliances",
+        //         "Heating & Thermostats",
+        //         "Home Security & Alarms"];
+        // } else if (s1.value == "Appliances") {
+        //     var optionArray = ["Washing machine",
+        //         "Refrigerator",
+        //         "Dishwasher",
+        //         "Dryer",
+        //         "Range, stove or oven",
+        //         "Garbage disposal"];
+        // } else if (s1.value == "Household") {
+        //         var optionArray = ["Carpet & Draperies",
+        //         "Windows",
+        //         "Exterior Home",
+        //         "Interior Home",
+        //         "Ducts & Vents - Clean",
+        //         "Chimney & Fireplace - Clean",
+        //         "Waste Material & Junk Removal"];
+        // } else if (s1.value == "Landscaping") {
+        //         var optionArray = ["Lawn Maintenance",
+        //         "Bushes, Shrubs & Trees pruning",
+        //         "Fences",
+        //         "Outdoor Patios, Steps & Walkways fixes",
+        //         "Mowers/mowing",
+        //         "Planting"];
+        // } else if (s1.value == "Painting") {
+        //         var optionArray = ["Exterior Painting or Staining",
+        //         "Interior Painting or Staining",
+        //         "Paint Removal and Cleaning",
+        //         "Wallpapering"];
+        // } else if (s1.value == "Housecleaning") {
+        //         var optionArray = ["Carpet & Draperies",
+        //         "Windows",
+        //         "Exterior Home",
+        //         "Interior Home",
+        //         "Ducts & Vents",
+        //         "Chimney & Fireplace"];
+        // } else if (s1.value == "Heating") {
+        //         var optionArray = ["Heating Systems",
+        //         "Water Heaters",
+        //         "Ducts & Vents",
+        //         "Fireplaces, Inserts, Stoves",
+        //         "Central Air Conditioning",
+        //         "Window A/C Unit"];
+        // } else if (s1.value == "Windows") {
+        //         var optionArray = ["Stuck Windows",
+        //         "Cracked Glass",
+        //         "Leaks & Moisture",
+        //         "Rotted Window Sill",
+        //         "Heavy Drafts",
+        //         "Locks & Hinges"];
+        // }
 
     for (var option in optionArray) {
         if (optionArray.hasOwnProperty(option)) {
             var pair = optionArray[option];
+            var dataId = idArray[option];
             var radio = document.createElement("input");
             radio.type = "radio";
             radio.name = "group1";
             radio.value = pair;
+            radio.setAttribute('data-id', dataId);
             s2.appendChild(radio);
     
             var label = document.createElement('label')
