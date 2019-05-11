@@ -1,51 +1,56 @@
+
 $(document).ready(function() {
-    // Getting references to our form and inputs
-    var ticketForm = $("#ticket");
-    var skillsCategory = $("#slct1").val().trim();
-    var emergencyCheck = $("#emergency").val().trim();
-    var workCategoryVal = $("#natureWork").val().trim();
-    var scheduleCategory = $("#timeWork").val().trim();
-    var submittedByVal = 0; //reassigned when logged in user queried
-    
-    // hardcoded - replace one by one with new working functionality
-    var skillIdVal = 3;
+
+    var submittedByVal = 0;
+    populate('slct1','slct2');
   
     $.get("/api/user_data").then(function(data) {
-        
         console.log(data);
         submittedByVal = data.id;
-    
     });
 
+
+
     // When the form is submitted, we validate there's an email and password entered
-    ticketForm.on("submit", function(event) {
-      event.preventDefault();
+$("#ticket").on("submit", function(event) {
+    event.preventDefault();
 
-      if(emergencyCheck === "emergency") {
-          emergencyCheck = 1;
-      } else {
-          emergencyCheck = 0;
-      }
+    var skillsCategory = $("#slct1").val().trim();
+    var emergencyCheck = $("#emergency").prop('checked');
+    var workCategoryVal = $("#natureWork").val().trim();
+    var scheduleCategory = $("#timeWork").val().trim();
+    var skillIdVal = document.querySelector('input[name = "group1"]:checked').value;
 
-      console.log("variable - ");
-      console.log("Skills - " + skillsCategory);
-      console.log("Emergency - " + emergencyCheck);
-      console.log("Work Category - " + workCategoryVal);
-      console.log("Schedule - " + scheduleCategory);
+    console.log("Emergency Checkbox - " + emergencyCheck);
 
-      var newTicket = {
-        submitted_by: submittedByVal,
-        skill_id: skillIdVal,
-        emergency: emergencyCheck,
-        work_category: workCategoryVal,
-        schedule: scheduleCategory
-      };
-      console.log(newTicket);
+    if(emergencyCheck) {
+        emergencyCheck = 1;
+    } else {
+        emergencyCheck = 0;
+    }
+
+    console.log("variables - ");
+    console.log("Skills - " + skillsCategory);
+    console.log("Emergency - " + emergencyCheck);
+    console.log("Work Category - " + workCategoryVal);
+    console.log("Schedule - " + scheduleCategory);
+    console.log("Skill Subcategory - " + skillIdVal);
+
+    var newTicket = {
+    submitted_by: submittedByVal,
+    // FOR TESTING - comment the line above and uncomment the line below, allows ticket submission without logging in
+    // submitted_by: 1,
+    skill_id: skillIdVal,
+    emergency: emergencyCheck,
+    work_category: workCategoryVal,
+    schedule: scheduleCategory
+    };
+    console.log(newTicket);
   
     //   Client side validation here
   
       // If we have an email and password we run the loginUser function and clear the form
-      createTicket(newTicket);
+    createTicket(newTicket);
   
     // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
     // function createTicket(ticket) {
@@ -66,4 +71,3 @@ $(document).ready(function() {
   
 });
 });
-  
