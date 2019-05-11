@@ -1,9 +1,20 @@
-
+var dataFromApi = {};
+var submittedByVal = 0;
 $(document).ready(function() {
 
-    var submittedByVal = 0;
-    populate('slct1','slct2');
+    
+    
   
+    
+
+    $.get("/api/skills_data").then(function(data) {
+        console.log(data);
+
+        dataFromApi = data;
+        console.log(dataFromApi);
+        populate('slct1','slct2');
+    });
+
     $.get("/api/user_data").then(function(data) {
         console.log(data);
         submittedByVal = data.id;
@@ -19,7 +30,8 @@ $("#ticket").on("submit", function(event) {
     var emergencyCheck = $("#emergency").prop('checked');
     var workCategoryVal = $("#natureWork").val().trim();
     var scheduleCategory = $("#timeWork").val().trim();
-    var skillIdVal = document.querySelector('input[name = "group1"]:checked').value;
+    var skillIdVal = document.querySelector('input[name = "group1"]:checked').getAttribute('data-id');
+
 
     console.log("Emergency Checkbox - " + emergencyCheck);
 

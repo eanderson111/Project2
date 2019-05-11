@@ -39,12 +39,16 @@ module.exports = function(app) {
   app.post("/api/report", function(req, res) {
 
     // search for attributes
-    db.Skill.findOne({ where: {description: req.body.skill_id} }).then(project => {
-      req.body.skill_id = project.id;
-      db.Ticket.create(req.body).then(function(dbTicket) {
+    // db.Skill.findOne({ where: {description: req.body.skill_id} }).then(project => {
+    //   req.body.skill_id = project.id;
+    //   db.Ticket.create(req.body).then(function(dbTicket) {
+    //     res.json(dbTicket);
+    //   });
+    // });  
+
+          db.Ticket.create(req.body).then(function(dbTicket) {
         res.json(dbTicket);
       });
-    });  
   });
 
 
@@ -68,7 +72,6 @@ module.exports = function(app) {
   app.get("/api/user_data", function(req, res) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
-      console.log("not logged in");
       res.json({});
     }
     else {
@@ -81,6 +84,15 @@ module.exports = function(app) {
     }
   });
 
+  app.get("/api/skills_data", function(req, res) {
+
+    db.Skill.findAll({}).then(function(dbSkill) {
+      res.json(dbSkill);
+    });
+      // Otherwise send back the user's email and id
+      // Sending back a password, even a hashed password, isn't a good idea
+      
+  });
   
 };
 
