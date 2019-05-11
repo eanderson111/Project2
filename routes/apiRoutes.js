@@ -38,11 +38,13 @@ module.exports = function(app) {
   // Create a new example
   app.post("/api/report", function(req, res) {
 
-    console.log("I am inside the post route");
-    db.Ticket.create(req.body).then(function(dbTicket) {
-
-      res.json(dbTicket);
-    });
+    // search for attributes
+    db.Skill.findOne({ where: {description: req.body.skill_id} }).then(project => {
+      req.body.skill_id = project.id;
+      db.Ticket.create(req.body).then(function(dbTicket) {
+        res.json(dbTicket);
+      });
+    });  
   });
 
 

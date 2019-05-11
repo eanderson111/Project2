@@ -67,7 +67,6 @@ input {
             <div class="form-group col-md-12">
                     <label for="emergency">Is this an emergency?</label><br>
                     <input type="checkbox" id="emergency" name="emergency" value="emergency"> Yes<br>
-                    <input type="checkbox" id="non-emergency" name="non-emergency" value="non-emergency"> No <br>
             </div>
 
 
@@ -181,11 +180,11 @@ input {
     for (var option in optionArray) {
         if (optionArray.hasOwnProperty(option)) {
             var pair = optionArray[option];
-            var checkbox = document.createElement("input");
-            checkbox.type = "checkbox";
-            checkbox.name = pair;
-            checkbox.value = pair;
-            s2.appendChild(checkbox);
+            var radio = document.createElement("input");
+            radio.type = "radio";
+            radio.name = "group1";
+            radio.value = pair;
+            s2.appendChild(radio);
     
             var label = document.createElement('label')
             label.htmlFor = pair;
@@ -195,10 +194,7 @@ input {
             s2.appendChild(document.createElement("br"));    
         }
     }
-}
-// $( "button" ).click(function() {
-//     alert ("We've received your submission and are contacting your handyman! We'll send you a Calendly link with options shortly.")
-// })
+};
 
 
 </script>
