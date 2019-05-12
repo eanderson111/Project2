@@ -141,13 +141,11 @@ $(function(){
       selectSubcats[i] = $(this).val();
     });
     console.log(selectSubcats)
-    subcat = selectSubcats
+    //subcat = selectSubcats
   });
 });
 
-var subcat = []
 
-console.log(subcat)
 
 // Get references to page elements
 var $clientFName = $("#inputFirstName");
@@ -220,7 +218,7 @@ var handleFormSubmit = function(event) {
  //getAddress(street)
   console.log(lat)
   console.log(lng)
-  console.log(selectSubcats)
+  //console.log(selectSubcats)
 
   if (!(client.first_name && client.last_name && client.address && client.city && client.state && client.zip && client.email && client.password)) {
     alert("You must enter ALL the information!");
