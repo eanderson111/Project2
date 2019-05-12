@@ -1,5 +1,5 @@
     <div class = container>
-        <form action="" method="POST" role="form">
+        <form class="form-group" action="" method="POST" role="form">
 
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -108,7 +108,7 @@
                             <label for="signupCategory">What are you handy with? (Select all that apply)</label><br>
                                 <ul>
 
-                                  <li><input type="checkbox" value="plumbingArray" id ="plumbing" class="hiddeninput" name="plumbing"/>
+                                  <li><input type="checkbox" value="plumbing" id ="plumbing" class="hiddeninput" name="plumbing"/>
                                     <label for="plumbing" value="plumbing" ><img src="images/plumbing3.png" data-toggle="modal" data-target="#exampleModal"/></label>
                                     </li>
                                     <li><input type="checkbox" value="electrical" id="electrical" class="hiddeninput" name="electrical"/>
@@ -137,6 +137,29 @@
                                     </li>
                               </ul>
 
+
+                  <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+            
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                                <div class="form-check" id="checkboxes">
+                                  </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" id="modalSubmit" class="btn btn-primary" data-dismiss="modal">Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            </div>
+
                       <div class="form-group">
                     </div class="sign-up">
                     <button type="submit" class="btn btn-primary" id="signUp">Sign up</button>
@@ -144,26 +167,6 @@
               </form>
         </div>
 
-         <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
 
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                    <div class="form-check" id="checkboxes">
-                      </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
-            </div>
-          </div>
-        </div>
-      </div>
-</div>
-</div>
 
-      <script src="/js/sign.js"></script>
+      <script src="/js/signup.js"></script>
