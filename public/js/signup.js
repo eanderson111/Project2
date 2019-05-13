@@ -1,4 +1,8 @@
+var user = {}
 
+
+user.categories =[]
+user.subcategories =[]
 
  $(document).ready(function() {
 
@@ -75,30 +79,19 @@
         
 
   $('input[type="checkbox"]').click(function() {
-    // $.each($("input[name='plumbing']:checked"), function() {
-    //   console.log(plumbingArray)
-    // });
-
-//  for (i=0; i<skills.length; i++){
-// 	console.log(skills);
-// }
-
     var categoryChosen = this.id;
-   
-
 
     $('#myModal').modal('show').on('shown.bs.modal', function() {
-     
       $('#checkboxes').html("")
 
       console.log(categoryChosen);
-      console.log(subCategories[categoryChosen]);
-
+      // client.categories.push(categoryChosen);
+      // console.log(subCategories[categoryChosen]);
 
     $.each(subCategories[categoryChosen], function(i)
     {
         var li = $('<li/>')
-            .addClass('ui-menu-item')
+            .addClass('rad')
             .attr('role', 'menuitem')
             .appendTo($('#checkboxes'));
       
@@ -110,40 +103,44 @@
             .addClass('ui-all')
             .attr('type', 'checkbox')
             .attr('value', subCategories[categoryChosen][i])
-            .attr('id' , categoryChosen + "[]")
-            .attr('name' , categoryChosen)
+            .attr('id' , categoryChosen)
+            .attr('name' , 'subcategory[]')
             .appendTo(aaa);
              
       var aaaa = $('<span>')
             .text(subCategories[categoryChosen][i])
             .appendTo(aaa);
+
+  
     })
   })
 })
 });
 
-// var bodyInput = $("plumbing")
+ 
+var allSelections = {
+  plumbing: [],
+  electrical: [],
+  appliances: [],
+  household: [],
+  landcaping: [],
+  painting: [],
+  housecleaning: [],
+  heating: [],
+  windows: [],
+}
 
-// $('#modalSubmit').click(function(){
-//   /* when the submit button in the modal is clicked, submit the form */
-//   console.log("it's working")
-//   var categorySubmit = {
-//     categoryInput: $("[value=plumbing]:checked").val().trim(),
-//     // subcategoryInput: $("[id^=plumbing]:checked")
-//   };
-//   console.log(categorySubmit)
-// });
-
-$(function(){
+// // THIS GIVES ME AN ARRAY OF SUBCATEGORIES
   $('#modalSubmit').click(function(){
-    var selectSubcats = [];
-    $(':checkbox:checked').each(function(i){
-      selectSubcats[i] = $(this).val();
-    });
-    console.log(selectSubcats)
-    //subcat = selectSubcats
+    var data = { 'subcategory[]' : []};
+    $('#checkboxes input[name="subcategory[]"]:checked').each(function() {
+      console.log(this.id)
+      allSelections[this.id].push(this.value);
+      user.categories=allSelections;
+    })
+    console.log("this is category & subcategory data: ", allSelections)
+    console.log("this is the client data: ", user)
   });
-});
 
 
 
@@ -205,7 +202,8 @@ var handleFormSubmit = function(event) {
     city: $clientCity.val().trim(),
     state: $clientState.val().trim(),
     zip: $clientPostal.val().trim(),
-    skills: $clientSkills,//$clientSkills.val().trim(),
+    skillAlias: allSelections,
+    // skills: $clientSkills,//$clientSkills.val().trim(),
     lat: lat,
     lng: lng,
     email: $clientEmail.val().trim(),
