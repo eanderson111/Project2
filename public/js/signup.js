@@ -74,31 +74,22 @@
 }
         
 
+
   $('input[type="checkbox"]').click(function() {
-    // $.each($("input[name='plumbing']:checked"), function() {
-    //   console.log(plumbingArray)
-    // });
-
-//  for (i=0; i<skills.length; i++){
-// 	console.log(skills);
-// }
-
     var categoryChosen = this.id;
-   
 
 
     $('#myModal').modal('show').on('shown.bs.modal', function() {
-     
       $('#checkboxes').html("")
 
       console.log(categoryChosen);
-      console.log(subCategories[categoryChosen]);
+      // console.log(subCategories[categoryChosen]);
 
 
     $.each(subCategories[categoryChosen], function(i)
     {
         var li = $('<li/>')
-            .addClass('ui-menu-item')
+            .addClass('rad')
             .attr('role', 'menuitem')
             .appendTo($('#checkboxes'));
       
@@ -111,40 +102,55 @@
             .attr('type', 'checkbox')
             .attr('value', subCategories[categoryChosen][i])
             .attr('id' , categoryChosen + "[]")
-            .attr('name' , categoryChosen)
+            .attr('name' , categoryChosen + "[]")
             .appendTo(aaa);
              
       var aaaa = $('<span>')
             .text(subCategories[categoryChosen][i])
             .appendTo(aaa);
+
+  
     })
   })
 })
 });
 
-// var bodyInput = $("plumbing")
 
-// $('#modalSubmit').click(function(){
-//   /* when the submit button in the modal is clicked, submit the form */
-//   console.log("it's working")
-//   var categorySubmit = {
-//     categoryInput: $("[value=plumbing]:checked").val().trim(),
-//     // subcategoryInput: $("[id^=plumbing]:checked")
-//   };
-//   console.log(categorySubmit)
+
+var bodyInput = $("plumbing")
+
+$('#modalSubmit').click(function(){
+  console.log("the click is working");
+  var data = { 'plumbing[]' : []};
+  $('#checkboxes input[name="plumbing[]"]:checked').each(function() {
+    data['plumbing[]'].push($(this).val());
+    var categorySubmit = $("[value=plumbing]:checked").val().trim()
+    console.log(categorySubmit)
+  })
+}
+ 
+
+// var skillIdVal = document.querySelector('input[name = "group1"]:checked').getAttribute('data-id');
+
+// // THIS GIVES ME AN ARRAY OF SUBCATEGORIES
+//   $('#modalSubmit').click(function(){
+//     var data = { 'plumbing[]' : []};
+//     $('#checkboxes input[name="plumbing[]"]:checked').each(function() {
+//       data['plumbing[]'].push($(this).val());
+//     })
+//     console.log(data)
+//   });
+
+// THIS GETS ME AN ARRAY BUT IT KEEPS ADDING THE CATEGORY
+// $(function(){
+//   $('#modalSubmit').click(function(){
+//     var selectSubcats = [];
+//     $('.rad:checked').each(function(i){
+//       selectSubcats[i] = $(this).val();
+//     });
+//     // console.log(selectSubcats)
+//   });
 // });
-
-$(function(){
-  $('#modalSubmit').click(function(){
-    var selectSubcats = [];
-    $(':checkbox:checked').each(function(i){
-      selectSubcats[i] = $(this).val();
-    });
-    console.log(selectSubcats)
-  });
-});
-
-
 
 // Get references to page elements
 var $clientFName = $("#inputFirstName");
