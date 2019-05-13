@@ -132,20 +132,17 @@ client.subcategories =[]
 })
 });
 
-
-// $('#modalSubmit').click(function(){
-//   console.log("the click is working");
-//   var data = { 'plumbing[]' : []};
-//   $('#checkboxes input[name="plumbing[]"]:checked').each(function() {
-//     data['plumbing[]'].push($(this).val());
-//     var categorySubmit = $("[value=plumbing]:checked").val().trim()
-//     console.log(categorySubmit)
-//   })
-// })
  
 var allSelections = {
   plumbing: [],
   electrical: [],
+  appliances: [],
+  household: [],
+  landcaping: [],
+  painting: [],
+  housecleaning: [],
+  heating: [],
+  windows: [],
 }
 
 // // THIS GIVES ME AN ARRAY OF SUBCATEGORIES
