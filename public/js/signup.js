@@ -154,7 +154,7 @@ var $clientPostal = $("#inputZip");
 //var $clientSkills = $("#client-skills");
 var $clientEmail = $("#signupEmail");
 var $clientPass = $("#signupPassword");
-var $submitBtn = $("#submit");
+var $submitBtn = $("#signUp");
 var $clientList = $("#client-list");
 var street = ""
 var lat = 0
@@ -216,6 +216,7 @@ var handleFormSubmit = function(event) {
  //getAddress(street)
   console.log(lat)
   console.log(lng)
+  //console.log(selectSubcats)
 
   if (!(client.first_name && client.last_name && client.address && client.city && client.state && client.zip && client.email && client.password)) {
     alert("You must enter ALL the information!");
@@ -228,8 +229,9 @@ var handleFormSubmit = function(event) {
   
   API.saveClient(client).then(function(data) {
     //window.location.replace(data);
+    alert("You are now signed up")
     loginUser(client.email, client.password)
-   alert("You are now signed up")
+   
   });
 
   $clientFName.val("");
