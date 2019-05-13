@@ -154,7 +154,7 @@ var $clientPostal = $("#inputZip");
 //var $clientSkills = $("#client-skills");
 var $clientEmail = $("#signupEmail");
 var $clientPass = $("#signupPassword");
-var $submitBtn = $("#submit");
+var $submitBtn = $("#signUp");
 var $clientList = $("#client-list");
 var street = ""
 var lat = 0
@@ -174,8 +174,6 @@ var API = {
       data: JSON.stringify(client)
     });
   },
-  
-  
 };
 
 
@@ -202,7 +200,7 @@ var handleFormSubmit = function(event) {
     city: $clientCity.val().trim(),
     state: $clientState.val().trim(),
     zip: $clientPostal.val().trim(),
-    skillAlias: allSelections,
+    skills: allSelections,
     // skills: $clientSkills,//$clientSkills.val().trim(),
     lat: lat,
     lng: lng,
