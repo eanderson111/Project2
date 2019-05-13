@@ -1,28 +1,17 @@
 var dataFromApi = {};
 var submittedByVal = 0;
 $(document).ready(function() {
-
     
-    
-  
-    
-
     $.get("/api/skills_data").then(function(data) {
-        console.log(data);
-
         dataFromApi = data;
-        console.log(dataFromApi);
         populate('slct1','slct2');
     });
 
     $.get("/api/user_data").then(function(data) {
-        console.log(data);
         submittedByVal = data.id;
     });
 
-
-
-    // When the form is submitted, we validate there's an email and password entered
+    
 $("#ticket").on("submit", function(event) {
     event.preventDefault();
 
