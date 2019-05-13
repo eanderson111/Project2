@@ -1,23 +1,8 @@
-var client = {}
+var user = {}
 
-// Get references to page elements
-client.FName = $("#inputFirstName");
-client.LName = $("#inputLastName");
-client.Address = $("#inputAddress");
-client.City = $("#inputCity");
-client.State = $("#inputState");
-client.Postal = $("#inputZip");
-//var $clientSkills = $("#client-skills");
-client.Email = $("#signupEmail");
-client.Pass = $("#signupPassword");
-submitBtn = $("#submit");
-client.List = $("#client-list");
-client.street = ""
-lat = 0
-lng = 0
-geo = []
-client.categories =[]
-client.subcategories =[]
+
+user.categories =[]
+user.subcategories =[]
 
  $(document).ready(function() {
 
@@ -151,21 +136,13 @@ var allSelections = {
     $('#checkboxes input[name="subcategory[]"]:checked').each(function() {
       console.log(this.id)
       allSelections[this.id].push(this.value);
-      client.categories=allSelections;
+      user.categories=allSelections;
     })
-    console.log(client)
+    console.log("this is category & subcategory data: ", allSelections)
+    console.log("this is the client data: ", user)
   });
 
-// THIS GETS ME AN ARRAY BUT IT KEEPS ADDING THE CATEGORY
-// $(function(){
-//   $('#modalSubmit').click(function(){
-//     var selectSubcats = [];
-//     $('.rad:checked').each(function(i){
-//       selectSubcats[i] = $(this).val();
-//     });
-//     // console.log(selectSubcats)
-//   });
-// });
+
 
 // Get references to page elements
 var $clientFName = $("#inputFirstName");
@@ -225,7 +202,8 @@ var handleFormSubmit = function(event) {
     city: $clientCity.val().trim(),
     state: $clientState.val().trim(),
     zip: $clientPostal.val().trim(),
-    skills: $clientSkills,//$clientSkills.val().trim(),
+    skillAlias: allSelections,
+    // skills: $clientSkills,//$clientSkills.val().trim(),
     lat: lat,
     lng: lng,
     email: $clientEmail.val().trim(),
