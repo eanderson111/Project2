@@ -5,43 +5,23 @@
   <meta charset="UTF-8">
   <title>Sign Up Form</title>
   <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" type="text/css" href="../public/stylesheets/report.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/report.js"></script>
-
+  <link rel="stylesheet" type="text/css" href="../public/styles/style.css" />
 </head>
 
-<style>
-    .container {
-        padding-left: 5px;
-        padding-right: 2em;
-        padding-top: 2em;
-    }
-p, h1, slct2 {
-    margin: 15px;
-}
-
-label {
-    margin: 10px;
-    margin-left: 15px;
-}
-input {
-    margin: 10px;
-    margin-left: 15px;
-}
-.form-group {
-    padding-left: 10px
-    
-    }
-
-</style>
-
 <body>
+    <div class="report">
     <div class = container>
         <form id="ticket" action="" method="POST" role="form">
-                <h1>What type of handyman help do you need?</h1>
+                <div class="row">
+                        <div class="col-md-12">
+                          <h2 class="login-title ser-title">What type of handyman help do you need?</h2>
+                          <hr class="botm-line" />
                 <div class="form-row-1">
                         <div class="form-group col-md-12" id="skills-selection">
                             <select id="slct1" class="form-control" name="slct1" onchange="populate(this.id, 'slct2')">
@@ -96,11 +76,12 @@ input {
 
             <div class="form-group row">
                     <div class="col-sm-12">
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-appoint btn-primary">Submit</button>
                     </div>
                 </div>
         </form>
     </div>
+</div>
 </body>
 
 <script type="text/javascript">
