@@ -35,6 +35,11 @@
 <link rel="stylesheet" type="text/css" href="/styles/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="/styles/style.css" />
 </head>
+<style>
+  select.form-control:not([size]):not([multiple]) {
+  height:40px;
+}
+</style>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
     
@@ -81,7 +86,7 @@
     <div class="report">
     <div class ="report-container container">
         <form id="ticket" action="" method="POST" role="form">
-                <div class="row">
+                <div class="row" style="margin-left:20px">
                         <div class="col-md-12">
                           <h2 class="login-title ser-title">What type of handyman help do you need?</h2>
                           <hr class="botm-line" />
