@@ -1,4 +1,4 @@
-$(document).ready(function() {
+
     $('#submit').on('click', function() {
         console.log("button click")
             $('#myModal').modal('show').on('shown.bs.modal', function() {
@@ -12,4 +12,4 @@ $(document).ready(function() {
                     console.log("modal shown")
             })
 });
-});
+
