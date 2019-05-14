@@ -1,3 +1,79 @@
+<section id="banner" class="banner">
+      <div class="bg-color">
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="col-md-12">
+              <div class="navbar-header">
+                <button
+                  type="button"
+                  class="navbar-toggle"
+                  data-toggle="collapse"
+                  data-target="#myNavbar"
+                >
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"
+                  ><img
+                    src="/img/logo.png"
+                    class="img-responsive"
+                    style="width: 250px; margin-top: -16px;"
+                /></a>
+              </div>
+              <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="/">Home</a></li>
+                  <li class=""><a href="/login">Login</a></li>
+                  <li class=""><a href="/signup">Sign Up</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <br>
+                <br>
+                        <br>
+                                <br>
+
+<div class = container>
+
+    <div class="row">
+    
+            <div class="jumbotron">
+      
+                    <h2>Let's get your handyman work done!</h2><br>
+ 
+                    <p class="lead"><i><b>Here are all the neighbors who could help.</b></i></p>
+                    <hr class="my-4">
+
+
+                    <div class="col-lg-12">
+                            <ul id="neighborResults">
+                            {{#each user}}
+                                <li>
+                                    <p class="inline">{{first_name}} {{last_name}} could help you with that. <span class="pull-right">
+                                    <button type="button" class="btn-appoint btn btn-default" name="submitCss" id="submit">Send a message</button></span></p>
+                                </li>
+                            {{/each}}
+                            </ul>
+                       </div>
+                       
+
+                       <hr class="my-4" style="height:5px;border:none;color:#811A17;background-color:#811A17;">
+                       <p class="lead"><i><b>Or request a handyman and we'll send you a Calendly link to choose a time that works best for you.</b></i></p>
+                       <hr class="my-4">
+                       <div class="col-lg-12">
+                            <ul id="neighborResults">
+                                    <li>
+                                    <p class="inline">Schedule your handyman. <span class="pull-right">
+                                    <button type="button" class="btn-appoint btn btn-default" name="submitCss" id="dispatch" style="float: right;">Let's schedule</button></span></p>
+                                    </li>
+                       </div>
+                  </div>
+    </div>
+</div>
+
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -43,42 +119,74 @@
 </div>
 </div>
 
-<div class = container>
+<!--footer-->
+  <footer id="footer">
+    <div class="top-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-4 marb20">
+            <div class="ftr-tle">
+              <h4 class="white no-padding">Our Mission</h4>
+            </div>
+            <div class="info-sec">
+              <p>
+                To enrich the life of our customers by providing exceptional work.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 marb20">
+            <div class="ftr-tle">
+              <h4 class="white no-padding">Quick Links</h4>
+            </div>
+            <div class="info-sec">
+              <ul class="quick-info">
+                <li>
+                  <a href="/logout"><i class="fa fa-circle"></i>Home</a>
+                </li>
+                <li>
+                  <a href="/signup"><i class="fa fa-circle"></i>Sign Up</a>
+                </li>
+                <li>
+                  <a href="/login"><i class="fa fa-circle"></i>Login</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 marb20">
+            <div class="ftr-tle">
+              <h4 class="white no-padding">Follow us</h4>
+            </div>
+            <div class="info-sec">
+              <ul class="social-icon">
+                <li class="bglight-blue"><i class="fa fa-facebook"></i></li>
+                <li class="bgred"><i class="fa fa-google-plus"></i></li>
+                <li class="bgdark-blue"><i class="fa fa-linkedin"></i></li>
+                <li class="bglight-blue"><i class="fa fa-twitter"></i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-line">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            Copyright &copy; 2019 Eva Anderson, Nathan Olson, Ben Andersen,
+            Irina Montgomery
+            <div class="credits">
 
-    <div class="row">
-    
-            <div class="jumbotron">
-      
-                    <h2>Let's get your handyman work done!</h2><br>
- 
-                    <p class="lead"><i><b>Here are all the neighbors who could help.</b></i></p>
-                    <hr class="my-4">
+              <a href="https://bootstrapmade.com/">BootstrapMade.com</a>
 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--/ footer-->
 
-                    <div class="col-lg-12">
-                            <ul id="neighborResults">
-                            {{#each user}}
-                                <li>
-                                    <p class="inline">{{first_name}} {{last_name}} could help you with that. <span class="pull-right">
-                                    <button type="button" class="btn btn-primary" name="submitCss" id="submit" style="float: right;">Send a message</button></span></p>
-                                </li>
-                            {{/each}}
-                            </ul>
-                       </div>
-                       
+</section>
 
-                       <hr class="my-4" style="height:5px;border:none;color:#811A17;background-color:#811A17;">
-                       <p class="lead"><i><b>Or request a handyman and we'll send you a Calendly link to choose a time that works best for you.</b></i></p>
-                       <hr class="my-4">
-                       <div class="col-lg-12">
-                            <ul id="neighborResults">
-                                    <li>
-                                    <p class="inline">Schedule your hanyman. <span class="pull-right">
-                                    <button type="button" class="btn btn-primary" name="submitCss" id="dispatch" style="float: right;">Let's schedule</button></span></p>
-                                    </li>
-                       </div>
-                  </div>
-
-
-
-<script src="js/result.js"></script>
+ <script src="js/custom.js"></script>
+<script src="/js/result.js"></script>
