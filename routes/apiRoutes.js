@@ -26,11 +26,77 @@ module.exports = function(app) {
   // Create a new example
   app.post("/api/users", function(req, res) {
 
-    db.User.create(req.body).then(function(dbExample) {
+    console.log("here");
 
-      res.json(dbExample);
+    var skillsArrayObject = defineSkillsArray(req.body.skills);
+    console.log(skillsArrayObject);
+
+    // db.User.create(req.body).then(function(dbExample) {
+    //   res.json(dbExample);
+    // });
+    db.User.create({
+      id: 4,
+      first_name: "NewBen",
+      last_name: "Andersen",
+      address: "aString",
+      city: "aCity",
+      state: "astate",
+      zip:  55432,
+      lat:  0,
+      lng:  0,
+      email: "bcandersen11@yahoo.com",
+      password: "aPassword",
+      createdAt: '2016-12-31 23:59:59',
+      updatedAt: '2016-12-31 23:59:59'
+      // skillAlias: skillsArrayObject
+    }).then(function(newUser){
+      for (let skill of skillsArrayObject) {
+        db.Skill.findOne({where: {description: skill.description}}).then(function(dbSkill) {
+          db.UserSkill.create({
+            userId: 4,
+            skillId: dbSkill.id
+          });
+        })
+      }
     });
+
+    // }), {
+    //   include: [{
+    //     model: db.Skill,
+    //     as: 'skillAlias'
+    //    }]
+    // });
+
+    console.log("going into for loop");
+    for (let skill of skillsArrayObject) {
+      db.Skill.findOne({where: {description: skill.description}}).then(function(dbSkill) {
+        console.log("*************");
+        console.log(dbSkill);
+      })
+    }
+
+
   });
+
+  function defineSkillsArray(allSelections) {
+
+    skillsArray = [];
+
+    for(var category in allSelections) {
+        for(let subcategory of allSelections[category]){
+          skillsArray.push( {
+            type: category,
+            description: subcategory,
+            createdAt: '2016-12-31 23:59:59',
+            updatedAt: '2016-12-31 23:59:59'
+          });
+
+        }
+    }
+    return skillsArray
+}
+
+
 
   // Create a new example
   app.post("/api/report", function(req, res) {
@@ -71,41 +137,41 @@ module.exports = function(app) {
 
   
     // Figure out a way to save out to the database
-    // db.User.create({
-    //   id: 10,
-    //   first_name: "Ben",
-    //   last_name: "Andersen",
-    //   address: "aString",
-    //   city: "aCity",
-    //   state: "astate",
-    //   zip:  55432,
-    //   lat:  87.12345,
-    //   lng:  52.12345,
-    //   email: "bcandersen06@yahoo.com",
-    //   password: "aPassword",
-    //   createdAt: '2016-12-31 23:59:59',
-    //   updatedAt: '2016-12-31 23:59:59',
-    //   skillAlias: [
-    //     {
-    //       type: "newType",
-    //       description : "newDescription",
-    //       createdAt: '2016-12-31 23:59:59',
-    //       updatedAt: '2016-12-31 23:59:59'
-    //     },
-    //     {
-    //       type: "newType2",
-    //       description : "newDescription2",
-    //       createdAt: '2016-12-31 23:59:59',
-    //       updatedAt: '2016-12-31 23:59:59'
-    //     }
-    //   ]
+    db.User.create({
+      id: 10,
+      first_name: "Ben",
+      last_name: "Andersen",
+      address: "aString",
+      city: "aCity",
+      state: "astate",
+      zip:  55432,
+      lat:  87.12345,
+      lng:  52.12345,
+      email: "bcandersen06@yahoo.com",
+      password: "aPassword",
+      createdAt: '2016-12-31 23:59:59',
+      updatedAt: '2016-12-31 23:59:59',
+      skillAlias: [
+        {
+          type: "newType",
+          description : "newDescription",
+          createdAt: '2016-12-31 23:59:59',
+          updatedAt: '2016-12-31 23:59:59'
+        },
+        {
+          type: "newType2",
+          description : "newDescription2",
+          createdAt: '2016-12-31 23:59:59',
+          updatedAt: '2016-12-31 23:59:59'
+        }
+      ]
 
-    // }, {
-    //   include: [{
-    //     model: db.Skill,
-    //     as: 'skillAlias'
-    //    }]
-    // });
+    }, {
+      include: [{
+        model: db.Skill,
+        as: 'skillAlias'
+       }]
+    });
 
 
 
