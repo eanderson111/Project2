@@ -358,7 +358,7 @@ about
 }
 
 /***************************************
-doctor team
+our team
 ***************************************/
 .thumbnail {
 	border-radius: 0px;
@@ -696,7 +696,11 @@ report CSS
 /***************************************
 SIGN UP PAGE CSS
 ***************************************/
-
+.signup-container {
+	background-color:white;
+	margin-bottom:30px;
+	padding:20px;
+}
 ul {
 	list-style-type: none;
 }
@@ -761,4 +765,13 @@ label img {
 
 .form-check {
 	display: inline-block !important;
+}
+.signupfooter {
+	width: 100%;
+}
+.btn-primary {
+	background-color:maroon;
+}
+.btn-primary:hover { 
+	background-color: maroon;
 }
