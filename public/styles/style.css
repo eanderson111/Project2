@@ -707,6 +707,7 @@ ul {
 
 li {
 	display: inline-block;
+	padding: 10px
 }
 
 .hiddeninput {
@@ -715,7 +716,7 @@ li {
 
 label {
 	border: 1px solid #fff;
-	padding: 10px;
+	padding: 5px;
 	display: block;
 	position: relative;
 	margin: 10px;
@@ -785,3 +786,36 @@ label img {
 	background-color: maroon;
 }
 
+/***************************************
+SIGN UP PAGE CSS
+***************************************/
+
+.jumbotron {
+	background-color: white;
+}
+
+#neighborResults {
+list-style-type: none;
+}
+
+.inline {
+   display: inline;
+}
+
+li {
+   padding:10px;
+}
+
+hr {height:5px;
+	border:none;
+	color:#811A17;
+	background-color:#811A17;
+}
+
+#dispatch {
+	float: right;
+}
+
+.submitCss {
+	float: right;
+}
