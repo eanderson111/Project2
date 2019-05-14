@@ -23,9 +23,8 @@
               </div>
               <div class="collapse navbar-collapse navbar-right" id="myNavbar">
                 <ul class="nav navbar-nav">
-                  <li class="active"><a href="/">Home</a></li>
-                  <li class=""><a href="/login">Login</a></li>
-                  <li class=""><a href="/signup">Sign Up</a></li>
+                  <li class="active"><a href="/logout">Logout</a></li>
+                  
                 </ul>
               </div>
             </div>
@@ -53,7 +52,7 @@
                             {{#each user}}
                                 <li>
                                     <p class="inline">{{first_name}} {{last_name}} could help you with that. <span class="pull-right">
-                                    <button type="button" class="btn-appoint btn btn-default" name="submitCss" id="submit">Send a message</button></span></p>
+                                    <button type="button" class="btn-appoint btn btn-default" style="margin-top:0px ; margin-left: 20px ; float:right" name="submitCss" id="submit">Send a message</button></span></p>
                                 </li>
                             {{/each}}
                             </ul>
@@ -67,7 +66,7 @@
                             <ul id="neighborResults">
                                     <li>
                                     <p class="inline">Schedule your handyman. <span class="pull-right">
-                                    <button type="button" class="btn-appoint btn btn-default" name="submitCss" id="dispatch" style="float: right;">Let's schedule</button></span></p>
+                                    <button type="button" class="btn-appoint btn btn-default" style="margin-top: 0px ; margin-left: 20px" name="submitCss" id="dispatch" style="float: right;">Let's schedule</button></span></p>
                                     </li>
                        </div>
                   </div>
@@ -188,5 +187,5 @@
 
 </section>
 
- <script src="js/custom.js"></script>
+ <script src="/js/custom.js"></script>
 <script src="/js/result.js"></script>
