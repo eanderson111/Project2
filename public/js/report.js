@@ -2,8 +2,24 @@ var dataFromApi = {};
 var submittedByVal = 0;
 $(document).ready(function() {
 
-    
-    
+    var one = ["thingOne", "thingTwo", "thingThree"];
+    var two = ["morethingOne", "morethingTwo", "morethingThree"];
+    var three = ["anotherthingOne", "anotherthingTwo", "anotherthingThree"]
+    var arrayThing = [one,two,three]
+    var skillsArray = [];
+    for(var selection in arrayThing) {
+        console.log(selection);
+        console.log("****HERE****");
+      for(var s in selection) {
+        if(typeof s !== 'undefined' && s) {
+          skillsArray.push( {
+            type: arrayThing[selection],
+            description: selection[s]
+          })
+          console.log(skillsArray);
+        }
+      }
+    }
   
     
 
@@ -19,6 +35,7 @@ $(document).ready(function() {
         console.log(data);
         submittedByVal = data.id;
     });
+
 
 
 
@@ -49,9 +66,9 @@ $("#ticket").on("submit", function(event) {
     console.log("Skill Subcategory - " + skillIdVal);
 
     var newTicket = {
-    submitted_by: submittedByVal,
+    // submitted_by: submittedByVal,
     // FOR TESTING - comment the line above and uncomment the line below, allows ticket submission without logging in
-    // submitted_by: 1,
+    submitted_by: 1,
     skill_id: skillIdVal,
     emergency: emergencyCheck,
     work_category: workCategoryVal,
@@ -76,8 +93,10 @@ $("#ticket").on("submit", function(event) {
     // };
 
     function createTicket(ticket) {
-        $.post("/api/report", ticket, function() {
-          window.location.href = "/report/submitted";
+        $.post("/api/report", ticket, function(data) {
+           console.log(data);
+          window.location.href = "/report/step2/"+ data.skill_id;
+        // window.location.href = "/report";
         });
       };
   

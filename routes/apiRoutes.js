@@ -15,9 +15,6 @@ module.exports = function(app) {
     res.json("/profile");
   });
 
-
-
-
   // Get all examples
   app.get("/api/users", function(req, res) {
     db.User.findAll({}).then(function(dbExamples) {
@@ -38,22 +35,84 @@ module.exports = function(app) {
   // Create a new example
   app.post("/api/report", function(req, res) {
 
-    // search for attributes
-    // db.Skill.findOne({ where: {description: req.body.skill_id} }).then(project => {
-    //   req.body.skill_id = project.id;
-    //   db.Ticket.create(req.body).then(function(dbTicket) {
-    //     res.json(dbTicket);
-    //   });
-    // });  
 
-          db.Ticket.create(req.body).then(function(dbTicket) {
-        res.json(dbTicket);
-      });
+    db.Ticket.create(req.body).then(function(dbTicket) {
+      // probably need something here to handle proper/improper ticket creation
+      // console.log("**********************");
+      // console.log(dbTicket);  
+      // var skill_id = dbTicket.dataValues.skill_id;
+      res.json(dbTicket);
+
+    });
+
   });
+
+  
+
+  // Needed?
+  app.get("/report/step2/:skill_id", function(req, res) {
+    console.log("Inside the redirect");
+    db.User.findAll({
+      include: [{
+          model: db.Skill,
+          as: 'skillAlias',
+          where: { id: req.params.skill_id }
+      }]
+    }).then(function(dbUserSkill) {
+      
+      console.log(dbUserSkill);
+      res.render("reportStep2", {
+        user: dbUserSkill
+      });
+      // console.log("exectuted this line");
+    });
+
+  });
+
+  
+    // Figure out a way to save out to the database
+    // db.User.create({
+    //   id: 10,
+    //   first_name: "Ben",
+    //   last_name: "Andersen",
+    //   address: "aString",
+    //   city: "aCity",
+    //   state: "astate",
+    //   zip:  55432,
+    //   lat:  87.12345,
+    //   lng:  52.12345,
+    //   email: "bcandersen06@yahoo.com",
+    //   password: "aPassword",
+    //   createdAt: '2016-12-31 23:59:59',
+    //   updatedAt: '2016-12-31 23:59:59',
+    //   skillAlias: [
+    //     {
+    //       type: "newType",
+    //       description : "newDescription",
+    //       createdAt: '2016-12-31 23:59:59',
+    //       updatedAt: '2016-12-31 23:59:59'
+    //     },
+    //     {
+    //       type: "newType2",
+    //       description : "newDescription2",
+    //       createdAt: '2016-12-31 23:59:59',
+    //       updatedAt: '2016-12-31 23:59:59'
+    //     }
+    //   ]
+
+    // }, {
+    //   include: [{
+    //     model: db.Skill,
+    //     as: 'skillAlias'
+    //    }]
+    // });
+
+
 
 
   // Get an example by id
   app.get("/api/users/:id", function(req, res) {
+    console.log("#################");
     db.User.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
 
       res.json(dbExample);
@@ -95,4 +154,15 @@ module.exports = function(app) {
   });
   
 };
+
+
+
+
+
+
+
+
+
+
+
 
