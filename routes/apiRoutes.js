@@ -26,11 +26,53 @@ module.exports = function(app) {
   // Create a new example
   app.post("/api/users", function(req, res) {
 
-    db.User.create(req.body).then(function(dbExample) {
+    var skillsArrayObject = defineSkillsArray(req.body.skills);
 
-      res.json(dbExample);
+    db.User.create({
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      address: req.body.address,
+      city: req.body.city,
+      state: req.body.state,
+      zip:  req.body.zip,
+      lat:  0,
+      lng:  0,
+      email: req.body.email,
+      password: req.body.password,
+      createdAt: '2016-12-31 23:59:59',
+      updatedAt: '2016-12-31 23:59:59'
+    }).then(function(newUser){
+      for (let skill of skillsArrayObject) {
+        db.Skill.findOne({where: {description: skill.description}}).then(function(dbSkill) {
+          db.UserSkill.create({
+            userId: newUser.id,
+            skillId: dbSkill.id
+          });
+        })
+      }
     });
+
   });
+
+  function defineSkillsArray(allSelections) {
+
+    skillsArray = [];
+
+    for(var category in allSelections) {
+        for(let subcategory of allSelections[category]){
+          skillsArray.push( {
+            type: category,
+            description: subcategory,
+            createdAt: '2016-12-31 23:59:59',
+            updatedAt: '2016-12-31 23:59:59'
+          });
+
+        }
+    }
+    return skillsArray
+}
+
+
 
   // Create a new example
   app.post("/api/report", function(req, res) {
