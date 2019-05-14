@@ -1,14 +1,14 @@
-var Oid
+var Oid = 0;
 var $name = $("#name");
 var $address = $("#address");
-var street
+var street = "";
 
 $(document).ready(function() {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.email);
-      Oid = (data.id-1)
+      var Oid = (data.id-1)
       console.log(Oid + " line 9")
       console.log(data)
    // $(".name").text(data.first_name);
