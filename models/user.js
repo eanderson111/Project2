@@ -57,12 +57,12 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     lat: {
-      type: DataTypes.FLOAT(7,6),
+      type: DataTypes.FLOAT(7,5),
       allowNull: false,
       validate: { min: -90, max: 90 }
     },
     lng: {
-      type: DataTypes.FLOAT(7,6),
+      type: DataTypes.FLOAT(7,5),
       allowNull: false,
       validate: { min: -180, max: 180 }
     },

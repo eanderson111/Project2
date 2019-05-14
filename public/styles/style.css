@@ -718,7 +718,10 @@ ul {
 }
 
 li {
-  display: inline-block;
+
+	display: inline-block;
+	padding: 10px
+
 }
 
 .hiddeninput {
@@ -726,12 +729,14 @@ li {
 }
 
 label {
-  border: 1px solid #fff;
-  padding: 10px;
-  display: block;
-  position: relative;
-  margin: 10px;
-  cursor: pointer;
+
+	border: 1px solid #fff;
+	padding: 5px;
+	display: block;
+	position: relative;
+	margin: 10px;
+	cursor: pointer;
+
 }
 
 label:before {
@@ -795,3 +800,36 @@ label img {
 #signUp {
   background-color: maroon;
 }
+
+
+/***************************************
+SIGN UP PAGE CSS
+***************************************/
+
+.jumbotron {
+	background-color: white;
+}
+
+#neighborResults {
+list-style-type: none;
+}
+
+.inline {
+   display: inline;
+}
+
+
+hr {height:5px;
+	border:none;
+	color:#811A17;
+	background-color:#811A17;
+}
+
+#dispatch {
+	float: right;
+}
+
+.submitCss {
+	float: right;
+}
+r

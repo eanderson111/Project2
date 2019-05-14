@@ -1,18 +1,84 @@
-         <div class="form-row">
-            <div class="form-group col-md-12">
-            {{!-- <label for="categories">What problems are you experiencing (category)?</label>
-                <script id="some-template" type="text/x-handlebars-template"> 
-                <select dropdown multiple class="dropdown" name="color">
-                    {{#each user}}
-                        <option value="{{id}}" {{first_name}}</option>
-                    {{/each}}
-                </select>
-                </script> --}}
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
+            <div class="modal-body">
+                <div class="form-group" id="neighborModal">
+                    <label for="exampleFormControlTextarea1">Enter your message:</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Send</button>
+            </div>
+          </div>
         </div>
-        <!-- test -->
-        <div id="home">
-            {{#each user}}
-                <p>{{first_name}} --- {{last_name}}</p>
-            {{/each}}
+      </div>
+</div>
+</div>
+
+<div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+                    <h5 class="modal-title">You're all set!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                    <p>You'll be receiving an email with a Calendly link shortly.<br> Simply pick a time that's best for you and we'll be there.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
+            </div>
+          </div>
         </div>
+      </div>
+</div>
+</div>
+
+<div class = container>
+
+    <div class="row">
+    
+            <div class="jumbotron">
+      
+                    <h2>Let's get your handyman work done!</h2><br>
+ 
+                    <p class="lead"><i><b>Here are all the neighbors who could help.</b></i></p>
+                    <hr class="my-4">
+
+
+                    <div class="col-lg-12">
+                            <ul id="neighborResults">
+                            {{#each user}}
+                                <li>
+                                    <p class="inline">{{first_name}} {{last_name}} could help you with that. <span class="pull-right">
+                                    <button type="button" class="btn btn-primary" name="submitCss" id="submit" style="float: right;">Send a message</button></span></p>
+                                </li>
+                            {{/each}}
+                            </ul>
+                       </div>
+                       
+
+                       <hr class="my-4" style="height:5px;border:none;color:#811A17;background-color:#811A17;">
+                       <p class="lead"><i><b>Or request a handyman and we'll send you a Calendly link to choose a time that works best for you.</b></i></p>
+                       <hr class="my-4">
+                       <div class="col-lg-12">
+                            <ul id="neighborResults">
+                                    <li>
+                                    <p class="inline">Schedule your hanyman. <span class="pull-right">
+                                    <button type="button" class="btn btn-primary" name="submitCss" id="dispatch" style="float: right;">Let's schedule</button></span></p>
+                                    </li>
+                       </div>
+                  </div>
+
+
+
+<script src="js/result.js"></script>
