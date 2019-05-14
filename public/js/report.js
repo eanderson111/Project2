@@ -38,9 +38,9 @@ $("#ticket").on("submit", function(event) {
     console.log("Skill Subcategory - " + skillIdVal);
 
     var newTicket = {
-    submitted_by: submittedByVal,
+    // submitted_by: submittedByVal,
     // FOR TESTING - comment the line above and uncomment the line below, allows ticket submission without logging in
-    // submitted_by: 1,
+    submitted_by: 1,
     skill_id: skillIdVal,
     emergency: emergencyCheck,
     work_category: workCategoryVal,
@@ -65,8 +65,10 @@ $("#ticket").on("submit", function(event) {
     // };
 
     function createTicket(ticket) {
-        $.post("/api/report", ticket, function() {
-          window.location.href = "/report/submitted";
+        $.post("/api/report", ticket, function(data) {
+            console.log(data);
+        //   window.location.href = "/report/submitted";
+        // window.location.href = "/report";
         });
       };
   
