@@ -35,6 +35,41 @@ module.exports = function(app) {
   // Create a new example
   app.post("/api/report", function(req, res) {
 
+
+    db.Ticket.create(req.body).then(function(dbTicket) {
+      // probably need something here to handle proper/improper ticket creation
+      // console.log("**********************");
+      // console.log(dbTicket);  
+      // var skill_id = dbTicket.dataValues.skill_id;
+      res.json(dbTicket);
+
+    });
+
+  });
+
+  
+
+  // Needed?
+  app.get("/report/step2/:skill_id", function(req, res) {
+    console.log("Inside the redirect");
+    db.User.findAll({
+      include: [{
+          model: db.Skill,
+          as: 'skillAlias',
+          where: { id: req.params.skill_id }
+      }]
+    }).then(function(dbUserSkill) {
+      
+      console.log(dbUserSkill);
+      res.render("reportStep2", {
+        user: dbUserSkill
+      });
+      // console.log("exectuted this line");
+    });
+
+  });
+
+  
     // Figure out a way to save out to the database
     // db.User.create({
     //   id: 10,
@@ -72,43 +107,12 @@ module.exports = function(app) {
     //    }]
     // });
 
-    db.Ticket.create(req.body).then(function(dbTicket) {
-      // probably need something here to handle proper/improper ticket creation
-      console.log("Inside the Post");
-      // res.json(dbTicket);
-      // req.redirect("report/step2/" + req.body.skill_id);
-      // What the hell?
-      res.render("index");
-      console.log("After the response");
-    });
 
-  });
-
-  
-
-  // Needed?
-  app.get("/report/step2/:skill_id", function(req, res) {
-    console.log("Inside the redirect");
-    db.User.findAll({
-      include: [{
-          model: db.Skill,
-          as: 'skillAlias',
-          where: { id: req.params.skill_id }
-      }]
-    }).then(function(dbUserSkill) {
-      console.log("Reporting from the API");
-      // console.log(dbUserSkill);
-      // res.json(dbUserSkill);
-      res.render("reportStep2", {
-        user: dbUserSkill
-      });
-      // console.log("exectuted this line");
-    });
-  });
 
 
   // Get an example by id
   app.get("/api/users/:id", function(req, res) {
+    console.log("#################");
     db.User.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
 
       res.json(dbExample);
@@ -150,4 +154,15 @@ module.exports = function(app) {
   });
   
 };
+
+
+
+
+
+
+
+
+
+
+
 

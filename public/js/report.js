@@ -1,17 +1,45 @@
 var dataFromApi = {};
 var submittedByVal = 0;
 $(document).ready(function() {
+
+    var one = ["thingOne", "thingTwo", "thingThree"];
+    var two = ["morethingOne", "morethingTwo", "morethingThree"];
+    var three = ["anotherthingOne", "anotherthingTwo", "anotherthingThree"]
+    var arrayThing = [one,two,three]
+    var skillsArray = [];
+    for(var selection in arrayThing) {
+        console.log(selection);
+        console.log("****HERE****");
+      for(var s in selection) {
+        if(typeof s !== 'undefined' && s) {
+          skillsArray.push( {
+            type: arrayThing[selection],
+            description: selection[s]
+          })
+          console.log(skillsArray);
+        }
+      }
+    }
+  
     
+
     $.get("/api/skills_data").then(function(data) {
+        console.log(data);
+
         dataFromApi = data;
+        console.log(dataFromApi);
         populate('slct1','slct2');
     });
 
     $.get("/api/user_data").then(function(data) {
+        console.log(data);
         submittedByVal = data.id;
     });
 
-    
+
+
+
+    // When the form is submitted, we validate there's an email and password entered
 $("#ticket").on("submit", function(event) {
     event.preventDefault();
 
@@ -66,8 +94,8 @@ $("#ticket").on("submit", function(event) {
 
     function createTicket(ticket) {
         $.post("/api/report", ticket, function(data) {
-            console.log(data);
-        //   window.location.href = "/report/submitted";
+           console.log(data);
+          window.location.href = "/report/step2/"+ data.skill_id;
         // window.location.href = "/report";
         });
       };
