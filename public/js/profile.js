@@ -10,6 +10,7 @@ $(document).ready(function() {
     $(".member-name").text(data.email);
       Oid = (data.id-1)
       console.log(Oid + " line 9")
+      console.log(data)
    // $(".name").text(data.first_name);
 
   });

@@ -171,6 +171,7 @@ var API = {
       url: "api/users",
       data: JSON.stringify(client)
     });
+    
   },
 };
 
@@ -222,12 +223,14 @@ var handleFormSubmit = function(event) {
  // });
 
  
+   // console.log("almost there")
   
   API.saveClient(client).then(function(data) {
     //window.location.replace(data);
-    alert("You are now signed up")
-    loginUser(client.email, client.password)
+   // console.log("almost there")
    
+    loginUser(client.email, client.password)
+    alert("You are now signed up")
   });
 
   $clientFName.val("");
