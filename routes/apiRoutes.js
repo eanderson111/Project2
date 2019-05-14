@@ -115,47 +115,6 @@ module.exports = function(app) {
 
   });
 
-  
-    // Figure out a way to save out to the database
-    // db.User.create({
-    //   id: 10,
-    //   first_name: "Ben",
-    //   last_name: "Andersen",
-    //   address: "aString",
-    //   city: "aCity",
-    //   state: "astate",
-    //   zip:  55432,
-    //   lat:  87.12345,
-    //   lng:  52.12345,
-    //   email: "bcandersen06@yahoo.com",
-    //   password: "aPassword",
-    //   createdAt: '2016-12-31 23:59:59',
-    //   updatedAt: '2016-12-31 23:59:59',
-    //   skillAlias: [
-    //     {
-    //       type: "newType",
-    //       description : "newDescription",
-    //       createdAt: '2016-12-31 23:59:59',
-    //       updatedAt: '2016-12-31 23:59:59'
-    //     },
-    //     {
-    //       type: "newType2",
-    //       description : "newDescription2",
-    //       createdAt: '2016-12-31 23:59:59',
-    //       updatedAt: '2016-12-31 23:59:59'
-    //     }
-    //   ]
-
-    // }, {
-    //   include: [{
-    //     model: db.Skill,
-    //     as: 'skillAlias'
-    //    }]
-    // });
-
-
-
-
   // Get an example by id
   app.get("/api/users/:id", function(req, res) {
     console.log("#################");
@@ -165,8 +124,6 @@ module.exports = function(app) {
     });
   });
 
-
-//
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();
