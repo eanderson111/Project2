@@ -211,6 +211,7 @@ var handleFormSubmit = function(event) {
   };
 
   //street = client.address + "," + client.city + ","+ client.state
+  console.log(allSelections)
   console.log(street)
   console.log(typeof street)
  //getAddress(street)
