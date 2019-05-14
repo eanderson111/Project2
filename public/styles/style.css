@@ -776,10 +776,12 @@ label img {
 .signupfooter {
 	width: 100%;
 }
-.btn-primary {
-	background-color:maroon;
+
+#signupform {
+	background-color: white;
 }
-.btn-primary:hover { 
+
+#signUp {
 	background-color: maroon;
 }
 

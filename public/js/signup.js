@@ -184,7 +184,7 @@ var handleFormSubmit = function(event) {
   street = $clientAddress.val() + "," + $clientCity.val() + ","+ $clientState.val()
   console.log(street)
 
- getAddress(street)
+ //getAddress(street)
  
  //.then(function(data){
  //       makeClient(lat,lng)
@@ -225,8 +225,9 @@ var handleFormSubmit = function(event) {
   
   API.saveClient(client).then(function(data) {
     //window.location.replace(data);
+    alert("You are now signed up")
     loginUser(client.email, client.password)
-   alert("You are now signed up")
+   
   });
 
   $clientFName.val("");
@@ -249,73 +250,9 @@ $submitBtn.on("click", handleFormSubmit);
 
 
 
-/*need to onSubmit take $clientAddress, $clientCity, and $clientState and put it into the freeform for here MAPS then
- add the lat/long from this to each client/contractor */
 
-var getAddress = function(street) {
 
- $.ajax({
-  url: 'https://geocoder.api.here.com/6.2/geocode.json',
-  type: 'GET',
-  dataType: 'jsonp',
-  jsonp: 'jsoncallback',
-  data: {
-    searchtext: street,
-    app_id: 'gTzFBcdTfpQdW07yxaRz',
-    app_code: 'tPrTqfHoFM8mAgjmpdhAvg',
-    gen: '9'
-  },
-  success: function (data) {
-    //alert(JSON.stringify(data));
-  //  console.log(JSON.stringify(data))
-  //  console.log(data.Response.View[0].Result[0].Location)
-    console.log(data.Response.View[0].Result[0].Location.NavigationPosition[0].Latitude)
-    console.log(data.Response.View[0].Result[0].Location.NavigationPosition[0].Longitude)
-//    console.log(data.Response.View[0].Result[0].Location.DisplayPosition.Latitude)
-//    console.log(data.Response.View[0].Result[0].Location.DisplayPosition.Longitude)
 
-    lat = (data.Response.View[0].Result[0].Location.NavigationPosition[0].Latitude)
-    lng = (data.Response.View[0].Result[0].Location.NavigationPosition[0].Longitude)
-
-    geo.lat = lat
-    geo.lng = lng
-    
-    return(geo)
-
-  }
-});
-
-}
-
-var makeClient = function(lat,lng){
-
-  var client = {
-    first_name: $clientFName.val().trim(),
-    last_name: $clientLName.val().trim(),
-    address: $clientAddress.val().trim(),
-    city: $clientCity.val().trim(),
-    state: $clientState.val().trim(),
-    zip: $clientPostal.val().trim(),
-    skills: $clientSkills,//$clientSkills.val().trim(),
-    lat: lat,
-    lng: lng,
-    email: $clientEmail.val().trim(),
-    password: $clientPass.val().trim()
-  };
-
-  street = client.address + "," + client.city + ","+ client.state
-  console.log(street)
-  console.log(typeof street)
- getAddress(street)
-  console.log(lat)
-  console.log(lng)
-
-  if (!(client.name && client.address && client.city && client.state && client.postal_code)) {
-    alert("You must enter ALL the information!");
-    return;
-  }
-
-}
 
 function loginUser(email, password) {
   $.post("/api/login", {
@@ -330,4 +267,3 @@ function loginUser(email, password) {
   });
 }
 
-/*With this data for each user we can then based on selections add pins onto the map based on search criteria */
