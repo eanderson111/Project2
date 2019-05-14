@@ -57,12 +57,12 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     lat: {
-      type: DataTypes.FLOAT(7,6),
+      type: DataTypes.FLOAT(7,5),
       allowNull: false,
       validate: { min: -90, max: 90 }
     },
     lng: {
-      type: DataTypes.FLOAT(7,6),
+      type: DataTypes.FLOAT(7,5),
       allowNull: false,
       validate: { min: -180, max: 180 }
     },
@@ -92,7 +92,12 @@ module.exports = function(sequelize, DataTypes) {
               args: 3
           }
       }
-  }
+    },
+    isContractor: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    }
   });
 
   // Creating a custom method for our User model. 
