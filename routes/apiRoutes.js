@@ -50,6 +50,10 @@ module.exports = function(app) {
           });
         })
       }
+
+      res.json(newUser);
+     // console.log(newUser)
+
     });
 
   });
