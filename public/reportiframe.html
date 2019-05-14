@@ -25,9 +25,9 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" type="text/css" href="../public/styles/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="../public/styles/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../public/styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" />
     
   </head>
 
@@ -51,7 +51,7 @@
                 </button>
                 <a class="navbar-brand" href="#"
                   ><img
-                    src="../public/img/logo.png"
+                    src="/img/logo.png"
                     class="img-responsive"
                     style="width: 250px; margin-top: -16px;"
                 /></a>
@@ -67,7 +67,88 @@
           </div>
         </nav>
         
-        <iframe src="report.html" ></iframe>>
+
+
+        <div class="report">
+          <div class = container>
+              <form id="ticket" action="" method="POST" role="form">
+                      <div class="row">
+                              <div class="col-md-12">
+                                <h2 class="login-title ser-title">What type of handyman help do you need?</h2>
+                                <hr class="botm-line" />
+                      <div class="form-row-1">
+                              <div class="form-group col-md-12" id="skills-selection">
+                                  <select id="slct1" class="form-control" name="slct1" onchange="populate(this.id, 'slct2')">
+                                  <option value="Plumbing">Plumbing</option>
+                                  <option value="Electrical">Electrical</option>
+                                  <option value="Appliances">Appliances</option>
+                                  <option value="Household Chores">Household Chores</option>
+                                  <option value="Landscaping">Landscaping</option>
+                                  <option value="Painting & Staining">Painting & Staining</option>
+                                  <option value="Housecleaning">Housecleaning</option>
+                                  <option value="Heating">Heating & Cooling</option>
+                                  <option value="Windows">Windows & Doors</option>
+                                  </select>
+                          <hr />
+                          </div>
+                      </div>
+                      
+                      <p>Let's get more specific:</p>
+                      <div id="slct2"></div>
+                      <hr />
+      
+              <div class="form-row-2">
+                  <div class="form-group col-md-12">
+                          <label for="emergency">Is this an emergency?</label><br>
+                          <input type="checkbox" id="emergency" name="emergency" value="emergency"> Yes<br>
+                  </div>
+      
+      
+                  <div class="form-row-3">
+                      <div class="form-group col-md-12">
+                              <label for="exampleFormControlSelect1">Tell us more about the nature of the work to be done?</label>
+                              <select class="form-control" id="natureWork">
+                                  <option value="0">Repairs</option>
+                                  <option value="1">Installation</option>
+                                  <option value="2">Assembly</option>
+                                  <option value="3">Maintenance</option>
+                              </select>
+                      </div>
+                  </div>
+      
+                  <div class="form-row-4">
+                      <div class="form-group col-md-12">
+                              <label for="exampleFormControlSelect1">When were you hoping to have the work done?</label>
+                              <select class="form-control" id="timeWork">
+                                  <option>Today</option>
+                                  <option>Tomorrow</option>
+                                  <option>2-3 days</option>
+                                  <option>1 week</option>
+                              </select>
+                      </div>
+                  </div>
+      
+                  <div class="form-group row">
+                          <div class="col-sm-12">
+                            <button type="submit" class="btn btn-appoint btn-primary">Submit</button>
+                          </div>
+                      </div>
+              </form>
+          </div>
+      </div>
+     
+      
+     
+
+
+
+
+        
+        
+        
+        
+     <!--   <iframe src="report.html" ></iframe>>    -->
+        
         <footer id="footer">
             <div class="top-footer">
               <div class="container">
@@ -89,13 +170,13 @@
                     <div class="info-sec">
                       <ul class="quick-info">
                         <li>
-                          <a href="index.html"><i class="fa fa-circle"></i>Home</a>
+                          <a href="/"><i class="fa fa-circle"></i>Home</a>
                         </li>
                         <li>
-                          <a href="#service"><i class="fa fa-circle"></i>Sign Up</a>
+                          <a href="/signup"><i class="fa fa-circle"></i>Sign Up</a>
                         </li>
                         <li>
-                          <a href="#contact"
+                          <a href="/login"
                             ><i class="fa fa-circle"></i>Login</a
                           >
                         </li>
@@ -136,12 +217,118 @@
           </footer>
           <!--/ footer-->
       
-          <script src="../public/js/jquery.min.js"></script>
+          <script src="/js/jquery.min.js"></script>
        
-          <script src="../public/js/jquery.easing.min.js"></script>
-          <script src="../public/js/bootstrap.min.js"></script>
-          <script src="../public/js/custom.js"></script>
+          <script src="/js/jquery.easing.min.js"></script>
+          <script src="/js/bootstrap.min.js"></script>
+          <script src="/js/custom.js"></script>
         
         </body>
+
+        <script type="text/javascript">
+          function populate(slct1, slct2) {
+              var s1 = document.getElementById(slct1);
+              var s2 = document.getElementById(slct2);
+              s2.innerHTML = "";
+              var optionArray = [];
+              var idArray = [];
+              for(var d in dataFromApi) {
+                  if(dataFromApi[d].type === s1.value) {
+                      optionArray.push(dataFromApi[d].description);
+                      idArray.push(dataFromApi[d].id);
+                  }
+              }
+              // if (s1.value == "Plumbing") {
+              //     var optionArray = ["Drain Clearing",
+              //         "Faucets, Fixtures & Pipes",
+              //         "Garbage Disposal",
+              //         "Septic Systems, Sewers & Water Mains",
+              //         "Sprinkler Systems",
+              //         "Water Heaters",
+              //         "Boilers & Radiators",
+              //         "Pumps",
+              //         "Water Softening & Purification"];
+              // } else if (s1.value == "Electrical") {
+              //     var optionArray = ["Fixtures",
+              //         "Fuse",
+              //         "Outlets, Panels, Switches & Wiring",
+              //         "Cables, Networks & Telephones",
+              //         "Electronics, Computers & Home Media Systems",
+              //         "Appliances",
+              //         "Heating & Thermostats",
+              //         "Home Security & Alarms"];
+              // } else if (s1.value == "Appliances") {
+              //     var optionArray = ["Washing machine",
+              //         "Refrigerator",
+              //         "Dishwasher",
+              //         "Dryer",
+              //         "Range, stove or oven",
+              //         "Garbage disposal"];
+              // } else if (s1.value == "Household") {
+              //         var optionArray = ["Carpet & Draperies",
+              //         "Windows",
+              //         "Exterior Home",
+              //         "Interior Home",
+              //         "Ducts & Vents - Clean",
+              //         "Chimney & Fireplace - Clean",
+              //         "Waste Material & Junk Removal"];
+              // } else if (s1.value == "Landscaping") {
+              //         var optionArray = ["Lawn Maintenance",
+              //         "Bushes, Shrubs & Trees pruning",
+              //         "Fences",
+              //         "Outdoor Patios, Steps & Walkways fixes",
+              //         "Mowers/mowing",
+              //         "Planting"];
+              // } else if (s1.value == "Painting") {
+              //         var optionArray = ["Exterior Painting or Staining",
+              //         "Interior Painting or Staining",
+              //         "Paint Removal and Cleaning",
+              //         "Wallpapering"];
+              // } else if (s1.value == "Housecleaning") {
+              //         var optionArray = ["Carpet & Draperies",
+              //         "Windows",
+              //         "Exterior Home",
+              //         "Interior Home",
+              //         "Ducts & Vents",
+              //         "Chimney & Fireplace"];
+              // } else if (s1.value == "Heating") {
+              //         var optionArray = ["Heating Systems",
+              //         "Water Heaters",
+              //         "Ducts & Vents",
+              //         "Fireplaces, Inserts, Stoves",
+              //         "Central Air Conditioning",
+              //         "Window A/C Unit"];
+              // } else if (s1.value == "Windows") {
+              //         var optionArray = ["Stuck Windows",
+              //         "Cracked Glass",
+              //         "Leaks & Moisture",
+              //         "Rotted Window Sill",
+              //         "Heavy Drafts",
+              //         "Locks & Hinges"];
+              // }
+      
+          for (var option in optionArray) {
+              if (optionArray.hasOwnProperty(option)) {
+                  var pair = optionArray[option];
+                  var dataId = idArray[option];
+                  var radio = document.createElement("input");
+                  radio.type = "radio";
+                  radio.name = "group1";
+                  radio.value = pair;
+                  radio.setAttribute('data-id', dataId);
+                  s2.appendChild(radio);
+          
+                  var label = document.createElement('label')
+                  label.htmlFor = pair;
+                  label.appendChild(document.createTextNode(pair));
+      
+                  s2.appendChild(label);
+                  s2.appendChild(document.createElement("br"));    
+              }
+          }
+      };
+      
+      
+      </script>
       </html>
       

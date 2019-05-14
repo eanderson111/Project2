@@ -28,18 +28,18 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="../public/styles/font-awesome.min.css"
+      href="/styles/font-awesome.min.css"
     />
     <link
       rel="stylesheet"
       type="text/css"
-      href="../public/styles/bootstrap.min.css"
+      href="/styles/bootstrap.min.css"
     />
-    <link rel="stylesheet" type="text/css" href="../public/styles/style.css" />
-    <script src="../public/js/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" />
+    <script src="/js/jquery.min.js"></script>
 
-    <script src="../public/js/jquery.easing.min.js"></script>
-    <script src="../public/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 
     <link
       rel="stylesheet"
@@ -64,11 +64,50 @@
     ></script>
   </head>
 
-  <body>
+  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+      <section id="banner" class="banner">
+          <div class="bg-color">
+            <nav class="navbar navbar-default navbar-fixed-top">
+              <div class="container">
+                <div class="col-md-12">
+                  <div class="navbar-header">
+                    <button
+                      type="button"
+                      class="navbar-toggle"
+                      data-toggle="collapse"
+                      data-target="#myNavbar"
+                    >
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"
+                      ><img
+                        src="/img/logo.png"
+                        class="img-responsive"
+                        style="width: 250px; margin-top: -16px;"
+                    /></a>
+                  </div>
+                  <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                      <li class="active"><a href="/">Home</a></li>
+                      <li class=""><a href="/">Logout</a></li>
+                      <li class=""><a href="/signup">Sign Up</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </nav>
+        
+
+
+     
+
     <div class="login">
-      <div class="container">
+      <div class="login-container">
         <div class="row">
-          <div class="col-md-6 col-md-offset-3">
+          <div class="col-md-6 col-md-offset-1">
               <div class="row">
                   <div class="col-md-12">
                     <h2 class="login-title ser-title">Login</h2>
@@ -102,14 +141,83 @@
         </div>
       </div>
     </div>
+    </div>
+    </div>
 
-    <script src="../public/js/jquery.min.js"></script>
+    <footer id="footer">
+      <div class="top-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-sm-4 marb20">
+              <div class="ftr-tle">
+                <h4 class="white no-padding">Our Mission</h4>
+              </div>
+              <div class="info-sec">
+                <p>
+                  To enrich the life of our customers by providing exceptional work.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 marb20">
+              <div class="ftr-tle">
+                <h4 class="white no-padding">Quick Links</h4>
+              </div>
+              <div class="info-sec">
+                <ul class="quick-info">
+                  <li>
+                    <a href="/"><i class="fa fa-circle"></i>Home</a>
+                  </li>
+                  <li>
+                    <a href="/signup"><i class="fa fa-circle"></i>Sign Up</a>
+                  </li>
+                  <li>
+                    <a href="/login"
+                      ><i class="fa fa-circle"></i>Login</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 marb20">
+              <div class="ftr-tle">
+                <h4 class="white no-padding">Follow us</h4>
+              </div>
+              <div class="info-sec">
+                <ul class="social-icon">
+                  <li class="bglight-blue"><i class="fa fa-facebook"></i></li>
+                  <li class="bgred"><i class="fa fa-google-plus"></i></li>
+                  <li class="bgdark-blue"><i class="fa fa-linkedin"></i></li>
+                  <li class="bglight-blue"><i class="fa fa-twitter"></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-line">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              Copyright &copy; 2019 Eva Anderson, Nathan Olson, Ben Andersen,
+              Irina Montgomery
+              <div class="credits">
+                
+                <a href="https://bootstrapmade.com/">BootstrapMade.com</a>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </section>
+    <script src="/js/jquery.min.js"></script>
 
-    <script src="../public/js/jquery.easing.min.js"></script>
-    <script src="../public/js/bootstrap.min.js"></script>
-    <script src="../public/js/custom.js"></script>
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/custom.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../public/js/login.js"></script>
+    <script type="text/javascript" src="/js/login.js"></script>
   </body>
 </html>

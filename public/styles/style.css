@@ -538,7 +538,7 @@ contact us
 iframe
 ***************************************/
 iframe {
-	width: 2000px;
+	width: 100%;
 	height: 800px;
 	margin: auto;
 }
@@ -766,6 +766,13 @@ label img {
 .form-check {
 	display: inline-block !important;
 }
+
+
+.login-container {
+	background-color: white;
+	height: 800px;
+	width: 850px;
+}
 .signupfooter {
 	width: 100%;
 }
@@ -775,3 +782,4 @@ label img {
 .btn-primary:hover { 
 	background-color: maroon;
 }
+
