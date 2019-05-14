@@ -92,7 +92,12 @@ module.exports = function(sequelize, DataTypes) {
               args: 3
           }
       }
-  }
+    },
+    isContractor: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    }
   });
 
   // Creating a custom method for our User model. 
