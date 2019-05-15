@@ -1,8 +1,8 @@
 
-var Oid
+var Oid = 0
 var $name = $("#name");
 var $address = $("#address");
-var street
+var street = ""
 
 
 $(document).ready(function() {
