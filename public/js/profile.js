@@ -1,7 +1,9 @@
-var Oid = 0;
+
+var Oid
 var $name = $("#name");
 var $address = $("#address");
-var street = "";
+var street
+
 
 $(document).ready(function() {
   // This file just does a GET request to figure out which user is logged in
