@@ -1,10 +1,13 @@
+$( ".js-help" ).each(function( index ) {
+    console.log( index + ": " + $( this ).text() )
+    $(this).on("click", function(){
+        $('#myModal').modal('show').on('shown.bs.modal', function() {
+            console.log("modal shown")
+    })
+        console.log(this)
 
-    $('#submit').on('click', function() {
-        console.log("button click")
-            $('#myModal').modal('show').on('shown.bs.modal', function() {
-                console.log("modal shown")
-        })
-});
+    })
+  });
 
     $('#dispatch').on('click', function() {
             console.log("button click")
