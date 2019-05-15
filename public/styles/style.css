@@ -786,8 +786,10 @@ label img {
 
 .login-container {
   background-color: white;
+
   height: 800px;
-  width: 850px;
+  width: 950px;
+margin: 0 auto;
 }
 .signupfooter {
   width: 100%;

@@ -35,6 +35,22 @@
 <link rel="stylesheet" type="text/css" href="/styles/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="/styles/style.css" />
 </head>
+<style>
+  select.form-control:not([size]):not([multiple]) {
+  height:40px;
+}
+label:checked, label:before  {
+  display: none;
+  margin:0;
+}
+label {
+  border: none;
+margin:10px;
+padding:10px;
+display:inline;
+}
+</style>
+
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
     
@@ -63,8 +79,10 @@
               </div>
               <div class="collapse navbar-collapse navbar-right" id="myNavbar">
                 <ul class="nav navbar-nav">
+
                   <li class="active"><a href="/logout">Logout</a></li>
                   
+
                 </ul>
               </div>
             </div>
@@ -77,23 +95,21 @@
         <div class="container">
             <div class="row">
               <div class="banner-info">
-                </div>
-              </div>
-              </div>
-              </div>
-              </section>
+              
+             
+            
 
 
     <div class="report">
     <div class ="report-container container">
         <form id="ticket" action="" method="POST" role="form">
-                <div class="row">
+                <div class="row" style="margin-left:20px">
                         <div class="col-md-12">
                           <h2 class="login-title ser-title">What type of handyman help do you need?</h2>
                           <hr class="botm-line" />
                 <div class="form-row-1">
                         <div class="form-group col-md-12" id="skills-selection">
-                            <select id="slct1" class="form-control" name="slct1" onchange="populate(this.id, 'slct2')">
+                            <select id="slct1" class="form-control " name="slct1" onchange="populate(this.id, 'slct2')">
                             <option value="Plumbing">Plumbing</option>
                             <option value="Electrical">Electrical</option>
                             <option value="Appliances">Appliances</option>
@@ -130,7 +146,7 @@
                         </select>
                 </div>
             </div>
-
+          </div>
             <div class="form-row-4">
                 <div class="form-group col-md-12">
                         <label for="exampleFormControlSelect1">When were you hoping to have the work done?</label>
@@ -142,16 +158,23 @@
                         </select>
                 </div>
             </div>
-
+          </div>
             <div class="form-group row">
                     <div class="col-sm-12">
                       <button type="submit" class="btn btn-appoint btn-primary">Submit</button>
                     </div>
-                </div>
+                
+              </div>
         </form>
     </div>
 </div>
 
+
+
+</div>
+</div>
+</div>
+</section>
 
 
 <script type="text/javascript">
@@ -339,9 +362,9 @@
 
 </body>
 
-
 <script src="/js/jquery.min.js"></script>
 
+>
 <script src="/js/jquery.easing.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/custom.js"></script>
