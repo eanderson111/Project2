@@ -10,7 +10,7 @@ $(document).ready(function() {
   // and updates the HTML on the page
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.email);
-      var Oid = (data.id-1)
+      Oid = (data.id-1)
       console.log(Oid + " line 9")
       console.log(data)
    // $(".name").text(data.first_name);
